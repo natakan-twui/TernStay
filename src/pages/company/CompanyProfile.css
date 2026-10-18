@@ -1,0 +1,1110 @@
+.company-view-page {
+    min-height: calc(100vh - 70px);
+    background: #f5f7fa;
+    display: flex;
+    gap: 24px;
+    padding: 32px 50px 60px 290px;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Sidebar
+========================= */
+
+.company-view-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 80px 16px 20px;
+    box-sizing: border-box;
+
+    z-index: 100;
+}
+
+.company-view-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.company-view-menu-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #182e5b;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+.company-view-menu-item:hover {
+    background: #ffc4ae3a;
+    color: #fc6027;
+    font-weight: 600;
+}
+
+.company-view-menu-item.active {
+    background: #ffc4ae3a;
+    color: #fc6027;
+    font-weight: 600;
+}
+
+.company-view-menu-item svg {
+    width: 19px;
+    height: 19px;
+}
+
+.company-view-logout-menu {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 14px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: transparent;
+    color: #d9534f;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+.company-view-logout-menu:hover {
+    background: #fff1f1;
+}
+
+
+/* =========================
+   Content
+========================= */
+
+.company-view-content {
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+}
+
+
+/* =========================
+   กล่อง 1
+========================= */
+
+.company-view-title-card {
+    border-radius: 14px;
+    margin-bottom: 18px;
+}
+
+.company-view-title-card h1 {
+    margin: 0;
+    color: #182e5b;
+    font-size: 26px;
+}
+
+.company-view-title-card p {
+    margin: 7px 0 0;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.company-view-card {
+    background: #ffffff;
+    border-radius: 14px;
+
+    padding: 24px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #edf0f2;
+    box-sizing: border-box;
+}
+
+.company-view-card h2 {
+    margin: 0 0 10px;
+
+    color: #182e5b;
+    font-size: 18px;
+}
+
+.company-basic-info h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.company-basic-info h2 svg {
+    width: 20px;
+    height: 20px;
+    color: #048bad;
+    flex-shrink: 0;
+}
+
+/* =========================
+   กล่อง 2
+========================= */
+
+.company-view-overview-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 24px;
+    margin-bottom: 18px;
+}
+
+.company-view-overview-logo {
+    width: 180px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-view-overview-logo {
+    width: 180px;
+    min-width: 180px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-view-logo-box {
+    width: 170px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 12px;
+
+    background: #f8fafb;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.company-view-logo-box img {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+}
+
+.company-view-logo-box svg {
+    width: 40px;
+    height: 40px;
+
+    color: #b8c0c7;
+}
+
+.company-view-change-logo-btn {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 2px solid #c7cdd857;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #182e5b;
+    font-size: 13px;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.company-view-info-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.company-view-info-card h2 svg {
+    width: 20px;
+    height: 20px;
+    color: #fc6027;
+    flex-shrink: 0;
+}
+
+.company-view-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.company-view-card h2 svg {
+    width: 20px;
+    height: 20px;
+    color: #fc6027;
+    flex-shrink: 0;
+}
+
+
+
+.company-view-change-logo-btn:hover {
+    background: #182e5b;
+    color: white;
+    border: 2px solid #182e5b;
+}
+
+.company-view-overview-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+
+.company-view-overview-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.company-view-overview-title {
+    flex: 1;
+    min-width: 0;
+}
+
+.company-view-overview-header h2,
+.company-view-overview-title h2 {
+    display: block;
+    margin: 0;
+    color: #182e5b;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.company-overview-details {
+    width: calc(100% - 180px);
+    max-width: 650px;
+    min-width: 0;
+}
+
+.company-view-overview-header h2 {
+    margin: 0 0 10px;
+
+    font-size: 22px;
+    color: #182e5b;
+}
+
+.company-view-business-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: #182e5b0c;
+    color: #182e5b;
+    font-size: 13px;
+}
+
+.company-view-overview-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.company-view-overview-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.company-overview-details {
+    display: block;
+    width: 100%;
+}
+
+.company-overview-details p {
+    margin: 0;
+    color: #182e5b;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: normal;
+    overflow-wrap: break-word;
+    margin-top: -15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.company-view-overview-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.company-view-business-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    max-width: 100%;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #182e5b0c;
+    color: #182e5b;
+    font-size: 12px;
+}
+
+.company-view-business-badge svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+
+.company-view-edit-btn {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 30px;
+    border: 2px solid #fc6027c5;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #fc6027;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.company-view-edit-btn:hover {
+    background: #fc6027;
+    color: white;
+}
+
+.company-view-overview-details {
+    margin-top: 18px;
+
+}
+
+.company-view-overview-detail span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #182e5b;
+    font-size: 13px;
+
+}
+
+.company-view-overview-detail p {
+    margin: 0;
+    color: #182e5b;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   กล่อง 3 - 7
+========================= */
+
+.company-view-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   กล่อง 3
+========================= */
+
+.profile-info-card {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.company-view-data-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 12px 0;
+}
+
+.company-view-data-item:last-child {
+    border-bottom: none;
+}
+
+.company-view-data-item>span {
+    width: 130px;
+    flex-shrink: 0;
+    color: #182e5b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.company-view-data-item>strong,
+.company-view-data-item>p {
+    margin: 0;
+    flex: 1;
+    color: #182e5b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.company-view-address-content>span {
+    width: 130px;
+    flex-shrink: 0;
+    color: #182e5b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =========================
+   กล่อง 5
+========================= */
+
+.company-view-contact-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.company-view-contact-card .company-view-data-item {
+    margin-bottom: -10px;
+}
+
+
+/* =========================
+   กล่อง 4
+========================= */
+
+.company-view-website-card {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.company-view-website-link {
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    padding: 0 13px;
+
+    border: 2px solid #e6e1e986;
+    border-radius: 9px;
+
+    color: #182e5b;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.company-view-website-link:hover {
+    cursor: pointer;
+}
+
+.company-view-website-link span {
+    flex: 1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   กล่อง 6
+========================= */
+
+.company-view-address-card {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.company-view-address-content {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #182e5b;
+}
+
+.company-view-address-content svg {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color: #048bad;
+    margin-top: 2px;
+}
+
+.company-view-address-content p {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   กล่อง 7
+========================= */
+
+.company-view-social-card {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.company-view-social-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.company-view-social-header h2 {
+    margin-bottom: 5px;
+}
+
+.company-view-social-header p {
+    margin: 0;
+
+    color: #777;
+    font-size: 13px;
+}
+
+.company-view-add-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #048bad;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #048bad;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.company-view-add-social-btn:hover {
+    background: #eaf8fc;
+}
+
+.company-view-social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.company-view-social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+
+    color: #333;
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.company-view-social-item:hover {
+    background: #f8fafb;
+}
+
+.company-view-social-item svg:first-child {
+    width: 19px;
+    height: 19px;
+
+    color: #048bad;
+}
+
+.company-view-social-item span {
+    flex: 1;
+}
+
+.company-view-social-item svg:last-child {
+    width: 16px;
+    height: 16px;
+
+    color: #999;
+}
+
+.company-view-empty-data {
+    padding: 16px;
+
+    border: 1px dashed #d7dce1;
+    border-radius: 9px;
+
+    color: #999;
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   Loading
+========================= */
+
+.company-view-loading {
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+    font-size: 15px;
+}
+
+/* =========================
+   popup
+========================= */
+.company-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(24, 46, 91, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.company-popup {
+    width: 450px !important;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 50px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    animation: companyPopupShow 0.2s ease;
+}
+
+.company-popup-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.company-popup-icon.success {
+    color: #4dba92;
+}
+
+.company-popup-icon.error {
+    background: #fff0f0;
+    color: #e04b4b;
+}
+
+.company-popup h3 {
+    margin: 0 0 8px;
+    color: #0e4e52;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.company-popup p {
+    margin: 0 0 22px;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.company-popup-btn {
+    width: 80%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    background: #4dba92;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: -10px;
+}
+
+.company-popup-btn:hover {
+    background: #4dba92c7;
+}
+
+.company-popup {
+    position: relative;
+    width: 380px;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .15);
+    box-sizing: border-box;
+}
+
+.company-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #8a8f98;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.company-popup-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.company-popup-close:hover {
+    background: #f3f4f6;
+    color: #182e5b;
+}
+
+.company-view-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+.company-view-breadcrumb button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #182e5b;
+    font: inherit;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.company-view-breadcrumb button:hover {
+    color:#182e5bee;
+}
+
+.company-view-breadcrumb>span {
+    color: #182e5b;
+}
+
+.company-view-breadcrumb .current {
+    color: #182e5b;
+    font-weight: 500;
+}
+
+@keyframes companyPopupShow {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1000px) {
+
+    .company-view-page {
+        padding-left: 270px;
+        padding-right: 25px;
+    }
+
+    .company-view-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-view-info-card,
+    .company-view-contact-card,
+    .company-view-website-card,
+    .company-view-address-card,
+    .company-view-social-card {
+        grid-column: 1;
+    }
+
+    .company-view-info-card {
+        grid-row: 1;
+    }
+
+    .company-view-contact-card {
+        grid-row: 2;
+    }
+
+    .company-view-website-card {
+        grid-row: 3;
+    }
+
+    .company-view-address-card {
+        grid-row: 4;
+    }
+
+    .company-view-social-card {
+        grid-row: 5;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .company-view-page {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .company-view-sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        padding: 15px;
+
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .company-view-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .company-view-logout-menu {
+        margin-top: 10px;
+    }
+
+    .company-view-overview-card {
+        flex-direction: column;
+    }
+
+    .company-view-overview-header {
+        flex-direction: column;
+    }
+
+    .company-view-edit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .company-view-social-header {
+        flex-direction: column;
+    }
+
+    .company-view-add-social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* =========================
+   Social Media - Icon Layout
+========================= */
+
+.company-view-social-card {
+    grid-column: 2;
+    grid-row: 3;
+    min-width: 0;
+}
+
+.company-view-social-header {
+    margin-bottom: 20px;
+}
+
+.company-view-social-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: #182e5b;
+    font-size: 18px;
+}
+
+.company-view-social-header h2 svg {
+    width: 20px;
+    height: 20px;
+    color: #fc6027;
+}
+
+.company-view-social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.company-view-social-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 62px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #182e5b;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.company-view-social-circle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 23px;
+    transition: transform 0.2s ease;
+}
+
+.company-view-social-icon-item:hover .company-view-social-circle {
+    transform: translateY(-3px);
+}
+
+.company-view-social-circle.facebook {
+    background: #1877f2;
+}
+
+.company-view-social-circle.linkedin {
+    background: #0a80b9;
+}
+
+.company-view-social-circle.instagram {
+    background: linear-gradient(
+        45deg,
+        #ffb13d,
+        #ff1764,
+        #c629c9
+    );
+}
+
+.company-view-social-circle.youtube {
+    background: #ff0000;
+}
+
+.company-view-social-circle.other {
+    background: #667085;
+}
+
+.company-view-social-circle.add {
+    background: #e9ebf0;
+    color: #344563;
+}
+
+.company-view-social-circle.add svg {
+    width: 21px;
+    height: 21px;
+}
+
+.company-view-social-add:hover {
+    color: #fc6027;
+}
+
+@media (max-width: 700px) {
+    .company-view-social-icons {
+        gap: 20px;
+    }
+}

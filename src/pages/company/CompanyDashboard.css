@@ -1,0 +1,693 @@
+* {
+    box-sizing: border-box;
+}
+
+/* ================= Hero ================= */
+.company-dashboard-page {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-hero,
+.dashboard-summary,
+.my-jobs-section {
+    width: 100%;
+}
+
+.dashboard-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 35px 50px;
+    min-height: 260px;
+    margin-bottom: 25px;
+    gap: 40px;
+    /* border: 1px solid red; */
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #182e5b;
+    margin-top: 15px;
+    line-height: 0.3;
+}
+
+.hero-content span {
+    color: #fc6027;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4b5563;
+    max-width: 500px;
+
+    margin-bottom: 30px;
+}
+
+/* ---------- ปุ่ม ---------- */
+.create-job-btn {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 10px;
+    background: #f76f3a;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.create-job-btn:hover {
+    background: #ea5d26;
+}
+
+/* ---------- รูป ---------- */
+.hero-image {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+/* ================= SUMMARY CARDS ================= */
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    /* border: 1px solid red; */
+}
+
+.summary-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-1px);
+}
+
+.summary-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    background: #fdf0ea;
+    color: #fc6027;
+}
+
+.summary-card h3 {
+    font-size: 14px;
+    margin: 0 0 8px;
+    color: #182e5b;
+}
+
+.summary-number {
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0;
+    color: #182e5b;
+}
+
+.summary-card span {
+    font-size: 13px;
+    color: #888;
+}
+
+/* ================= MY JOBS ================= */
+.my-jobs-section {
+    background: white;
+    padding: 25px;
+    margin-top: 35px;
+    /* border: 1px solid red; */
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #182e5b;
+}
+
+.section-header p {
+    margin-top: 8px;
+    color: #777;
+}
+
+.view-all-btn {
+    border: none;
+    background-color: white;
+    color: #182e5b;
+    padding: 7px 21px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1.6px solid #182e5b;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.view-all-btn svg {
+    font-size: 14px;
+}
+
+.view-all-btn:hover {
+    background-color: #182e5b;
+    color: white;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.job-card {
+    border-radius: 16px;
+    padding: 22px;
+    position: relative;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.job-info {
+    display: block;
+}
+
+
+.job-info p {
+    display: block;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-status {
+    display: inline-flex;
+    width: fit-content;
+    color: white;
+    padding: 5px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.job-status-open {
+    color: #04ad04;
+    background: #eaf8ea;
+}
+
+.job-status-closed {
+    background: #999;
+}
+
+.job-card h3 {
+    font-size: 13px;
+    color: #182e5b;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+
+.job-card h2 {
+    font-size: 19px;
+    margin-bottom: -15px;
+    color: #182e5b;
+}
+
+.job-info p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 11px 0;
+    font-size: 14px;
+    color: #182e5b;
+}
+
+.job-info svg {
+    color: #182e5b;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+/* กล่องปุ่ม */
+.job-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.job-actions button {
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.job-actions-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+/* ปุ่มดูรายละเอียด */
+.detail-btn-db {
+    width: 100%;
+    border: 2px solid #c7cdd8 !important;
+    background: transparent;
+    color: #182e5b !important;
+}
+
+.detail-btn-db:hover {
+    color: white !important;
+    border: 2px solid #182e5b !important;
+    background-color: #182e5b !important;
+
+}
+
+.detail-btn-db svg {
+    color: inherit;
+}
+
+/* ปุ่มแก้ไข */
+.edit-btn {
+    border: 2px solid #c7cdd8 !important;
+    background: transparent;
+    color: #182e5b;
+}
+
+.edit-btn:hover {
+    color: white;
+    background-color: #182e5b;
+    border: none !important;
+}
+
+.edit-btn svg {
+    color: inherit;
+}
+
+/* ปุ่มดูผู้สมัคร */
+.applicant-btn {
+    border: 2px solid #c7cdd8 !important;
+    background: transparent;
+    color: #182e5b;
+}
+
+.applicant-btn:hover {
+    color: white;
+    background-color: #182e5b;
+    border: none !important;
+}
+
+.applicant-btn svg {
+    color: inherit;
+}
+
+/* ปุ่มลบ */
+.delete-btn {
+    border: 2px solid #fdcecc !important;
+    background: transparent;
+    color: #fd7269;
+}
+
+.delete-btn:hover {
+    color: white;
+    background-color: #fc0400;
+    border: none !important;
+}
+
+.delete-btn svg {
+    color: inherit;
+}
+
+.job-actions button {
+    border: none;
+    padding: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.job-actions svg {
+    font-size: 19px;
+}
+
+.company-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+.company-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #eaeff8;
+    border-radius: 10px;
+
+    color: #182e5b;
+}
+
+.company-icon svg {
+    font-size: 27px;
+}
+
+.company-name h3 {
+    margin: 0;
+    font-size: 12px;
+    color: #182e5b;
+    font-weight: 600;
+}
+
+/* กิจกรรมล่าสุด */
+.activity-section {
+    padding: 25px;
+    margin-top: 10px;
+    /* border: 1px solid red; */
+
+}
+
+.timeline {
+    margin-top: 20px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.timeline-item {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    /* background-color: #36b44e; */
+    /* padding: 25px; */
+    margin-bottom: 20px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 60px;
+    top: 16px;
+    width: 7px;
+    height: 7px;
+    background: #c7cddc;
+    /* border:2px solid #182e5b; */
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 62px;
+    top: 16px;
+    width: 1.5px;
+    height: 72px;
+    background: #e5e7eb;
+
+}
+
+/* ================= Timeline Icon ================= */
+
+.timeline-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+/* ผู้สมัครใหม่ */
+.timeline-icon.application {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+/* ประกาศงาน */
+.timeline-icon.published {
+    color: #16a34a;
+    background: #f0fdf4;
+}
+
+/* แก้ไขประกาศงาน */
+.timeline-icon.edited {
+    color: #f59e0b;
+    background: #fffbeb;
+}
+
+.timeline-icon svg {
+    font-size: 20px;
+}
+
+/* .timeline-icon {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background-color: #fc6027;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+} */
+.timeline-icon svg {
+    font-size: 20px;
+}
+
+
+.timeline-content h3 {
+    margin: 0;
+    position: relative;
+    font-size: 16px;
+    color: #182e5b;
+    margin-left: 35px;
+
+}
+
+.timeline-content h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 55px;
+    /* ปรับตำแหน่งเส้นลง */
+    width: 100%;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+
+.timeline-content p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #5a648ee0;
+    margin-left: 35px;
+
+}
+
+
+
+.timeline-content span {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 12px;
+    color: #5a648ee0;
+    white-space: nowrap;
+}
+
+.timeline-content {
+    flex: 1;
+    position: relative;
+
+}
+
+
+
+
+
+/* การ์ดผู้สมัครทั้งหมด */
+.applicant-summary .summary-icon {
+    color: #182e5b;
+    background: #dde8fd;
+}
+
+.applicant-summary h3,
+.applicant-summary .summary-number {
+    color: #182e5b;
+}
+
+/* Popup */
+.company-popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.company-popup-cancel-btn,
+.company-popup-confirm-btn {
+    width: 140px;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* ปุ่มยกเลิก */
+.company-popup-cancel-btn {
+    background: #9ca3af;
+}
+
+.company-popup-cancel-btn:hover {
+    background: #8b929b;
+}
+
+/* ปุ่มยืนยันลบ */
+.company-popup-confirm-btn {
+    background: #e04b4b;
+}
+
+.company-popup-confirm-btn:hover {
+    background: #d43d3d;
+}
+
+/* =========================
+   Popup Confirm
+========================= */
+
+.company-popup.confirm .company-popup-icon {
+    color: #e04b4b;
+}
+
+.company-popup.confirm .company-popup-icon svg {
+    width: 68px;
+    height: 68px;
+    color: #e04b4b;
+    fill: currentColor;
+}
+
+/* หัวข้อ */
+.company-popup.confirm h3 {
+    color: #d43d3d;
+}
+
+/* ข้อความ */
+.company-popup.confirm p {
+    margin: 0 0 22px;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   Popup Success
+========================= */
+
+.company-popup.success .company-popup-icon {
+    color: #4dba92;
+}
+
+.company-popup.success .company-popup-icon svg {
+    width: 68px;
+    height: 68px;
+    color: #4dba92;
+}
+
+.company-popup.success h3 {
+    color: #0e4e52;
+}
+
+.company-popup.success p {
+    margin: 0 0 22px;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   Popup Error
+========================= */
+
+.company-popup.error .company-popup-icon {
+    color: #e04b4b;
+}
+
+.company-popup.error .company-popup-icon svg {
+    width: 68px;
+    height: 68px;
+    color: #e04b4b;
+}
+
+.company-popup.error h3 {
+    color: #d43d3d;
+}
+
+.company-popup.error p {
+    color: #7a4a4a;
+}

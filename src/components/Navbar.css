@@ -1,0 +1,16 @@
+.nav-item {
+    cursor: pointer;
+    color: #182e5b;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+    color: #fc6027;
+    border-bottom-color:#fc6027 ;
+}
+
+.nav-item.active {
+    color: #fc6027;
+    border-bottom-color:#fc6027 ;
+}

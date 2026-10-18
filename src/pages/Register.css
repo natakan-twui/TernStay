@@ -1,0 +1,652 @@
+/* =========================================================
+   REGISTER PAGE
+   หน้าสมัครสมาชิก
+========================================================= */
+
+.register-container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background: #f5f7fa;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+   ฝั่งซ้าย : แนะนำประโยชน์ของ TernStay
+========================================================= */
+
+.register-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+}
+
+
+/* กล่องเนื้อหาประโยชน์ */
+.register-benefit {
+    width: 420px;
+    margin-top: 40px;
+}
+
+
+/* หัวข้อฝั่งซ้าย */
+.register-benefit h2 {
+    font-size: 20px;
+    color: #0B1A3E;
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+
+/* รูปภาพประกอบหน้าสมัครสมาชิก */
+.register-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+}
+
+
+/* แต่ละรายการประโยชน์ */
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+
+/* ไอคอนของแต่ละประโยชน์ */
+.benefit-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #048BAD;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+
+/* หัวข้อของแต่ละประโยชน์ */
+.benefit-item h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: #0B1A3E;
+}
+
+
+/* รายละเอียดของแต่ละประโยชน์ */
+.benefit-item p {
+    margin: 0;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ไอคอนเครื่องหมายถูก
+   ปัจจุบัน JSX ใช้ icon จาก react-icons ตัวอื่น
+   สามารถเก็บ class นี้ไว้ใช้ในอนาคตได้ */
+.check-icon {
+    color: #04ad04;
+    font-size: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+   ฝั่งขวา : แบบฟอร์มสมัครสมาชิก
+========================================================= */
+
+.register-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 60px;
+    background: white;
+}
+
+
+/* =========================================================
+   REGISTER CARD
+   กล่องแบบฟอร์มสมัครสมาชิก
+========================================================= */
+
+.register-card {
+    width: 500px;
+    min-height: 500px;
+
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0;
+}
+
+
+/* =========================================================
+   REGISTER TITLE
+   หัวข้อ "สมัครสมาชิกสำหรับผู้สมัครงาน"
+========================================================= */
+
+.register-title {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    color: #182e5b;
+}
+
+
+/* สีของคำว่า "ผู้สมัครงาน" */
+.register-title span {
+    color: #fc6027;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   หัวข้อย่อย เช่น ข้อมูลผู้ใช้ / ข้อมูลบัญชีผู้ใช้
+========================================================= */
+
+.register-user,
+.register-account {
+    width: 80%;
+}
+
+
+/* หัวข้อย่อยของแต่ละส่วน */
+.register-user h3,
+.register-account h3 {
+    margin: 0 0 15px;
+    color: #182e5b;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+   กล่องที่ครอบ input แต่ละช่อง
+========================================================= */
+
+.box-input {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+
+/* ใช้สำหรับหัวข้อของ input ถ้ามี */
+.box-input-title {
+    margin: 0;
+    margin-bottom: -5px;
+
+    font-size: 13px;
+    color: #182e5b;
+}
+
+
+/* =========================================================
+   INPUT
+   ช่องกรอกข้อมูล
+========================================================= */
+
+.register-input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    font-size: 15px;
+    outline: none;
+}
+
+
+/* ตอน input ถูก focus */
+.register-input:focus {
+    border-color: #048BAD;
+}
+
+
+/* class ที่ใช้เมื่อ input กำลัง focus */
+.input-focus {
+    border-color: #048BAD;
+}
+
+
+/* input ที่มี error */
+.input-error {
+    border-color: #E53935;
+}
+
+
+/* =========================================================
+   ERROR / HINT
+   ข้อความแจ้งเตือนใต้ input
+========================================================= */
+
+.error-text,
+.hint-text {
+    width: 100%;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PASSWORD
+   ช่องรหัสผ่าน + ปุ่มเปิด/ปิดรหัสผ่าน
+========================================================= */
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* input password
+   เพิ่มพื้นที่ด้านขวาสำหรับไอคอนรูปตา */
+.password-input {
+    padding-right: 45px;
+}
+
+
+/* ไอคอนเปิด/ปิดรหัสผ่าน */
+.eye-icon {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+    color: #888;
+}
+
+
+/* =========================================================
+   CHECKBOX / TERMS
+   ยอมรับข้อตกลงการใช้บริการ
+========================================================= */
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    width: 80%;
+
+    margin-top: 20px;
+
+    font-size: 14px;
+}
+
+
+/* วงกลม checkbox */
+.checkbox-circle {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+    border: 1.5px solid #c9c9c9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+
+/* checkbox ตอนถูกเลือก */
+.checkbox-circle.checked {
+    background: #2653fa !important;
+    color: white;
+    border: none;
+}
+
+
+/* =========================================================
+   REGISTER LINK
+   ลิงก์ข้อตกลง / นโยบาย / เข้าสู่ระบบ
+========================================================= */
+
+.register-link {
+    color: #048BAD;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TERMS ERROR
+   Error ของ checkbox ข้อตกลง
+========================================================= */
+
+.terms-error {
+    color: #E53935;
+
+    font-size: 13px;
+
+    margin-top: 1px;
+    margin-bottom: -10px;
+
+    line-height: 1.6;
+
+    width: 80%;
+
+    text-align: left;
+
+    padding-left: 28px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+   ปุ่มสมัครสมาชิก
+========================================================= */
+
+.register-button {
+    width: 30%;
+
+    padding: 12px;
+
+    margin-top: 50px;
+
+    background: red;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   LOGIN TEXT
+   "เป็นสมาชิกอยู่แล้ว? เข้าสู่ระบบ"
+========================================================= */
+
+.register-text {
+    text-align: center;
+
+    font-size: 14px;
+
+    margin-top: auto;
+}
+
+
+/* ลิงก์เข้าสู่ระบบ */
+.login-link {
+    margin-left: 5px;
+}
+
+
+/* =========================================================
+   LOADING OVERLAY
+   หน้าจอแสดงตอนกำลังสมัครสมาชิก
+========================================================= */
+
+.loading-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* กล่อง Loading */
+.loading-popup {
+    width: 180px;
+    height: 130px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ข้อความ Loading */
+.loading-text {
+    margin-top: 15px;
+    color: #182e5b;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   LOADING SPINNER
+   วงกลมหมุน
+========================================================= */
+
+.spinner {
+    width: 35px;
+    height: 35px;
+
+    border: 4px solid #ddd;
+    border-top: 4px solid #048BAD;
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+}
+
+
+/* Animation ของ Spinner */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================= REGISTER POPUP ================= */
+
+.register-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(24, 46, 91, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.register-popup {
+    position: relative;
+    width: 380px;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    animation: registerPopupShow 0.2s ease;
+}
+
+/* ปุ่มกากบาทมุมขวาบน */
+
+.register-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #8a8f98;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.register-popup-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.register-popup-close:hover {
+    background: #f3f4f6;
+    color: #182e5b;
+}
+
+/* ไอคอน */
+
+.register-popup-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-popup-icon svg {
+    width: 68px;
+    height: 68px;
+}
+
+/* สำเร็จ */
+
+.register-popup.success .register-popup-icon {
+    color: #4dba92;
+}
+
+.register-popup.success h3 {
+    color: #0e4e52;
+}
+
+.register-popup.success p {
+    color: #667085;
+}
+
+/* ไม่สำเร็จ */
+
+.register-popup.error .register-popup-icon {
+    color: #e04b4b;
+}
+
+.register-popup.error h3 {
+    color: #d43d3d;
+}
+
+.register-popup.error p {
+    color: #7a4a4a;
+}
+
+/* ข้อความ */
+
+.register-popup h3 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.register-popup p {
+    margin: 0 0 22px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ปุ่มด้านล่าง */
+
+.register-popup-btn {
+    width: 80%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: -10px;
+}
+
+/* ปุ่มสำเร็จ */
+
+.register-popup.success .register-popup-btn {
+    background: #4dba92;
+}
+
+.register-popup.success .register-popup-btn:hover {
+    background: #3fa982;
+}
+
+/* ปุ่มข้อผิดพลาด */
+
+.register-popup.error .register-popup-btn {
+    background: #e04b4b;
+}
+
+.register-popup.error .register-popup-btn:hover {
+    background: #d43d3d;
+}
+
+/* Animation */
+
+@keyframes registerPopupShow {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,882 @@
+.form-card {
+    scroll-margin-top: 100px;
+}
+
+.create-job-page {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.create-job-hero {
+    background: white;
+    border-radius: 18px;
+    padding: 45px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+    margin-bottom: 20px;
+    position: relative;
+
+    background-image: url("/image/d1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.create-job-hero h1 {
+    font-size: 21px;
+    color: #182e5b;
+    font-weight: normal;
+}
+
+.create-job-hero p {
+    /* margin-top:12px; */
+    color: #666;
+    line-height: 1.2;
+}
+
+/* .create-job-hero span{
+    color:#f76f3a;
+    font-weight:bold;
+} */
+
+.hero-btn {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.create-btn {
+    background: #f76f3a;
+    color: white;
+    border: none;
+    padding: 12px 29px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.preview-btn {
+    background: white;
+    border: 2px solid #eaebf0;
+    padding: 14px 26px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preview-btn svg {
+    color: #182e5b !important;
+}
+
+.create-job-body {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.job-form {
+    flex: 1;
+}
+
+.job-preview {
+    width: 420px;
+    position: sticky;
+    top: 100px;
+}
+
+.job-preview-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 16px;
+    padding-left: 25px;
+
+    color: #0a1743;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.preview-title-icon {
+    color: #182e5b;
+    font-size: 17px;
+}
+
+.form-card,
+.preview-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+    color: #182e5b;
+}
+
+/* checkbox ค่าตอบแทน */
+.radio-group {
+    display: flex;
+    gap: 24px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+    margin: 0;
+}
+
+.radio-item input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* หัวข้อการ์ดล่างซ้าย */
+.form-card h2 {
+    color: #0a1743;
+}
+
+/* สถานที่ทำงาน , รูปแบบการทำงาน */
+.form-row-create {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row-create .form-group-create {
+    flex: 1;
+}
+
+/* เครื่องหมาย * */
+.required {
+    color: #F76F3A;
+    font-weight: 600;
+}
+
+/* ไอค่อนตัวเลขหน้า h2 */
+/* .form-section {
+    margin: 32px 0 20px;
+    /* padding-bottom: 12px; */
+/* border-bottom: 1px solid #ececec; */
+
+/* ปุ่มรูปแบบการทำงาน */
+.worktype-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 2px !important;
+    /* เดิม 10px */
+}
+
+.form-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: #0a1743;
+}
+
+.step-circle {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F76F3A;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+/* สีตัวเลือก */
+select {
+    color: #9197aa;
+    /* สีข้อความ */
+
+}
+
+/* การ์ดบนสุด */
+.hero-text {
+    margin: 0;
+    /* line-height:1.3; */
+}
+
+.hero-title {
+    display: block;
+    font-size: 33px;
+    font-weight: 700;
+    color: #0a1743;
+}
+
+.hero-title span {
+    color: #F76F3A;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    /* font-weight:bold; */
+    color: #0a1743;
+}
+
+.hero-number {
+    color: #0a1743;
+    /* font-weight:bold; */
+}
+
+/* Upload Logo */
+.company-header {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.company-name {
+    flex: 1;
+}
+
+.company-logo {
+    width: 260px;
+}
+
+.upload-logo-box {
+    width: 100%;
+    height: 150px;
+
+    border: 2px dashed #d9dce7;
+    border-radius: 14px;
+    background: #fafbff;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    /* กลางแนวตั้ง */
+    align-items: center;
+    /* กลางแนวนอน */
+    text-align: center;
+    /* ข้อความอยู่กลาง */
+
+    cursor: pointer;
+}
+
+.upload-icon {
+    display: block;
+    margin: 0 auto 12px;
+
+    font-size: 20px;
+    color: #182e5b;
+}
+
+.upload-logo-box h3 {
+    margin: 0 0 8px;
+    color: #182e5b;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+
+.upload-logo-box small {
+    color: #9aa3b2;
+    font-size: 13px;
+}
+
+/* ปุ่มเผยแพร่ประกาศงาน */
+.published-btn-create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F76F3A;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 26px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: -70px !important;
+
+}
+
+.published-btn-create svg {
+    font-size: 18px;
+}
+
+.published-btn-create:hover {
+    background-color: #f7703ae7 !important;
+}
+
+/* การ์ดประกาศงานให้น่าสนใจ */
+.tips-list p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    font-size: 13px;
+    margin: 14px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.tip-icon {
+    color: #182e5b;
+    font-size: 20px;
+    flex-shrink: 0;
+
+}
+
+.tips-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.tips-left {
+    flex: 1;
+}
+
+.tips-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* รูปแบบการทำงาน */
+.worktype-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.worktype-btn {
+    padding: 12px 22px;
+    border: 2px solid #e4e7ef;
+    border-radius: 10px;
+    background: #fff;
+    color: #182e5b;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.worktype-btn:hover {
+    background: #fc6027;
+    color: white;
+}
+
+.worktype-btn.active {
+    background: #fc6027;
+    border: 2px solid #fc6027;
+    color: #fff;
+}
+
+/* ค่าตอบแทน */
+.salary-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.salary-btn-group {
+    display: flex;
+    gap: 12px;
+}
+
+.salary-btn {
+    padding: 12px 24px;
+    border: 2px solid #e4e7ef;
+    border-radius: 10px;
+    background: #fff;
+    color: #182e5b !important;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.salary-btn:hover {
+    background: #fc6027;
+    color: white !important;
+}
+
+.salary-btn.active {
+    background: #fc6027 !important;
+    border-color: #fc6027 !important;
+    color: #fff !important;
+}
+
+.salary-input-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.salary-input-row input {
+    flex: 1;
+}
+
+.salary-input-row select {
+    width: 140px;
+}
+
+.salary-input-row .error-text-create {
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: -4px;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* กล่อง preview contact  */
+/* กล่องติดต่อ */
+.preview-card {
+    position: relative;
+    /* สำคัญ */
+}
+
+.company-badge {
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    padding: 7px 14px;
+    background: #fde8df !important;
+    color: #ff6439 !important;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.preview-contact {
+    margin-top: 24px;
+    padding: 22px;
+    background: #f8f9fb !important;
+    border-radius: 14px;
+}
+
+.preview-logo {
+    margin-bottom: 18px;
+}
+
+.preview-logo img {
+    width: 60px;
+    /* ปรับขนาดได้ */
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    padding: 13px;
+    border: 1px solid #f3f4f7 !important;
+    box-shadow: 0 8px 20px rgba(24, 46, 91, 0.08);
+    margin-top: 25px;
+}
+
+/* หัวข้อ */
+.preview-contact h4 {
+    margin: 0 0 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #182e5b;
+}
+
+.preview-card p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #182e5b !important;
+}
+
+.preview-icon {
+    color: #182e5b !important;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+hr {
+    border: none;
+    height: 0.1px;
+    background: #e5e7eb;
+    /* สีเส้น */
+    margin: 20px 0;
+}
+
+/* ปุ่มสมัคร */
+.btn-preview {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #fde8e1 !important;
+    color: #fe571a !important;
+    font-size: 16px;
+    font-weight: 600;
+    /* cursor: pointer; */
+    transition: .25s;
+}
+
+
+.preview-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    color: #182e5b;
+    font-size: 15px;
+}
+
+.contact-icon {
+    font-size: 18px;
+    color: #182e5b !important;
+    flex-shrink: 0;
+}
+
+/* Error ไม่กรอกข้อมูล */
+.input-error {
+    border: 2px solid #ef4444 !important;
+    background: #fff8f8;
+
+}
+
+.error-text-create {
+    display: block;
+    margin-top: -15px;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.input-error-group {
+    border: 2px solid #ef4444;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.no-applicant-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 100%;
+    min-height: 70px;
+}
+
+
+.no-applicant-result h3 {
+    margin: 0 0 8px;
+    color: #182e5b;
+}
+
+.no-applicant-result p {
+    margin: 0;
+}
+
+/* แผนที่ */
+.create-job-map {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.map-coordinate {
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* popup */
+.company-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(24, 46, 91, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.company-popup {
+    position: relative;
+    width: 380px;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    animation: companyPopupShow 0.2s ease;
+}
+
+.company-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #8a8f98;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.company-popup-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.company-popup-close:hover {
+    background: #f3f4f6;
+    color: #182e5b;
+}
+
+.company-popup-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-popup-icon svg {
+    width: 68px;
+    height: 68px;
+}
+
+/* Success */
+.company-popup.success .company-popup-icon {
+    color: #4dba92;
+}
+
+.company-popup.success h3 {
+    color: #0e4e52;
+}
+
+.company-popup.success p {
+    color: #667085;
+}
+
+/* Error */
+.company-popup.error .company-popup-icon {
+    color: #e04b4b;
+}
+
+.company-popup.error h3 {
+    color: #d43d3d;
+}
+
+.company-popup.error p {
+    color: #7a4a4a;
+}
+
+.company-popup h3 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.company-popup p {
+    margin: 0 0 22px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.company-popup-btn {
+    width: 80%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: -10px;
+}
+
+/* Success button */
+.company-popup.success .company-popup-btn {
+    background: #4dba92;
+}
+
+.company-popup.success .company-popup-btn:hover {
+    background: #3fa982;
+}
+
+/* Error button */
+.company-popup.error .company-popup-btn {
+    background: #e04b4b;
+}
+
+.company-popup.error .company-popup-btn:hover {
+    background: #d43d3d;
+}
+
+@keyframes companyPopupShow {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* พื้นหลัง */
+/* .create-job-hero {
+    position: relative;
+
+    background-image: url("/image/d.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 80px 0;
+} */
+.company-address-display {
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+    background: #f8fafc;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    box-sizing: border-box;
+    color: #182e5b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.company-address-display,
+.company-address-display span {
+    color: #182e5b !important;
+}
+
+.company-address-display svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    color: #182e5b !important;
+}
+
+.salary-group>.error-text-create {
+    margin-top: -5px;
+}
+
+.field-hint {
+    display: block;
+    margin-top: 7px;
+    color: #8a94a6;
+    font-size: 12px;
+}
+
+/* ระยะห่างของแถวหมวดหมู่งาน */
+.form-row-create {
+    margin-top: 10px;
+}
+
+/* เว้นระยะก่อนรูปแบบการทำงาน */
+.form-row-create + .form-group-create {
+    margin-top: 20px;
+}
+
+.worktype-group .error-text-create {
+    margin-top: -1px;
+}
+
+.form-row-create select {
+    width: 100%;
+    min-height: 48px;
+    height: auto;
+    padding: 12px 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.salary-input-row .error-text-create {
+    margin-top: -15px;
+}
+
+.job-detail-section>.form-group-create {
+    position: relative;
+    top: -15px;
+}
+
+.job-detail-section .qualification-group,
+.job-detail-section .skills-group,
+.job-detail-section .welfare-group {
+    transform: translateY(-20px);
+}
+
+.job-detail-section .skills-group {
+    position: relative !important;
+    top: -50px !important;
+    transform: none !important;
+}
+
+.job-detail-section .welfare-group {
+    position: relative !important;
+    top: -70px !important;
+    transform: none !important;
+}
+
+/* .form-section:nth-of-type(3) {
+    margin-top: -15px;
+} */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 12px 42px 12px 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 15px !important;
+    /* เพิ่มเลข = เลื่อนลูกศรไปทางซ้าย */
+    top: 25px !important;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #9197aa;
+    pointer-events: none;
+}

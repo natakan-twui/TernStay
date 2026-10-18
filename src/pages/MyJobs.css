@@ -1,0 +1,1663 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.my-jobs-page {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    min-height: calc(100vh - 70px);
+
+    padding: 32px 50px 60px 290px;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.my-jobs-sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    margin: 0 !important;
+
+    /* เพิ่มระยะด้านบน */
+    padding: 85px 16px 20px;
+
+    background: white;
+
+    border-right: 1px solid #e5e7eb;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   PROFILE BOX
+   ========================================================= */
+
+.profile-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 12px 12px 0 0;
+
+    position: relative;
+
+    padding: 0 2px 10px;
+}
+
+
+.profile-box::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: #f0f3f8;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+   ========================================================= */
+
+.profile-image {
+    width: 60px;
+    height: 60px;
+
+    flex-shrink: 0;
+}
+
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   PROFILE INFO
+   ========================================================= */
+
+.profile-info {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 4px;
+
+    min-width: 0;
+}
+
+
+.profile-info h3 {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #182e5b;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    max-width: 140px;
+}
+
+
+/* =========================================================
+   PROFILE VIEW BUTTON
+   ========================================================= */
+
+.profile-view-btn {
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: #3f6cd1;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+.profile-view-btn svg {
+    font-size: 13px;
+}
+
+
+.profile-view-btn:hover {
+    color: #3f6bd1dc;
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.user-menu {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    margin-top: 15px;
+}
+
+
+.user-menu button,
+.logout-btn {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 13px 14px;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: #182e5b;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+
+.user-menu button svg,
+.logout-btn svg {
+    font-size: 19px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MENU HOVER
+   ========================================================= */
+
+.user-menu button:hover {
+    background: #ffc4ae3a;
+
+    color: #fc6027;
+}
+
+
+.user-menu button:hover svg {
+    color: #f76f3a;
+}
+
+
+/* =========================================================
+   MENU ACTIVE
+   ========================================================= */
+
+.user-menu button.active {
+    background: #ffc4ae3a;
+
+    color: #fc6027;
+
+    font-weight: 600;
+}
+
+
+.user-menu button.active svg {
+    color: #f76f3a;
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.logout-btn {
+    color: #ef4444;
+}
+
+
+.logout-btn:hover {
+    background: #fff1f1;
+
+    color: #ef4444;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.my-jobs-main {
+    width: 100%;
+
+    min-width: 0;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.my-jobs-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 25px;
+}
+
+
+.my-jobs-header h1 {
+    margin: 0;
+
+    font-size: 35px;
+
+    color: #182e5b;
+
+    font-weight: 600;
+}
+
+
+.my-jobs-header p {
+    margin: 6px 57px 0;
+
+    font-size: 15px;
+
+    color: #182e5b;
+}
+
+
+.my-jobs-title h1 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.my-jobs-title h1 svg {
+    font-size: 40px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.job-search-area {
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.job-search-filter {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.job-search-box {
+    width: 300px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    background: white;
+
+    border: 2px solid #d9dee8;
+
+    border-radius: 9px;
+}
+
+
+.job-search-box svg {
+    color: #182e5b;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+}
+
+
+.job-search-box input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 13px;
+
+    color: #182e5b;
+}
+
+
+.job-search-box input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+   ========================================================= */
+
+.filter-btn {
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 16px;
+
+    background: white;
+
+    border: 2px solid #d9dee8;
+
+    border-radius: 9px;
+
+    color: #182e5b;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.filter-btn:hover {
+    background: #182e5b;
+    color: white;
+    border: 2px solid #182e5b;
+}
+
+
+.filter-btn.active {
+    background: #182e5b;
+    color: white;
+    border: 2px solid #182e5b;
+}
+
+
+.filter-btn svg {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   STATUS FILTER
+   ========================================================= */
+
+.status-filter {
+    display: flex;
+
+    margin-top: 20px;
+
+    overflow-x: auto;
+
+    border-bottom: 2px solid #e9e9eeda;
+}
+
+
+.status-filter button {
+    border: none;
+
+    border-bottom: 2px solid transparent;
+
+    background: white;
+
+    color: #182e5b;
+
+    padding: 8px 15px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+.status-filter button .status-icon {
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    color: currentColor;
+
+    flex-shrink: 0;
+}
+
+
+.status-filter button:hover {
+    border-bottom-color: #fc6027;
+
+    color: #fc6027;
+}
+
+
+.status-filter button.active {
+    background: white;
+
+    color: #fc6027;
+
+    border: none;
+
+    border-bottom: 2px solid #fc6027;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   APPLICATIONS
+   ========================================================= */
+
+.applications-section {
+    margin-top: 20px;
+}
+
+
+.applications-table-header {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 2fr) 130px 113px 160px 100px;
+
+    gap: 15px;
+
+    padding: 15px 22px;
+
+    color: #182e5b;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    background-color: #e9e9ee69;
+
+    align-items: center;
+
+    border-radius: 12px 12px 0 0;
+}
+
+
+.applications-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* =========================================================
+   APPLICATION CARD
+   ========================================================= */
+
+.application-card {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 2fr) 150px 120px 120px 140px;
+
+    gap: 15px;
+
+    align-items: center;
+
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.05);
+
+    position: relative;
+}
+
+
+/* =========================================================
+   JOB INFO
+   ========================================================= */
+
+.application-job {
+    display: flex;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+
+.job-company-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #edf2fa;
+
+    color: #182e5b;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+
+.application-job h3 {
+    margin: 0 0 3px;
+    color: #182e5b;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+
+.company-name {
+    margin: 0 0 10px !important;
+
+    color: #182e5b;
+
+    font-size: 13px !important;
+
+    font-weight: 500;
+    margin-left: 4px !important;
+}
+
+
+.job-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+    margin-left: 5px;
+}
+
+
+.job-meta span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #182e5b;
+
+    font-size: 11px;
+}
+
+
+.job-meta svg {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 10px 15px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    gap: 6px;
+    font-weight: 600;
+}
+
+
+.status-icon {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+}
+
+
+.status-badge.pending {
+    background: #e3ecfc;
+
+    color: #386ad3;
+}
+
+
+.status-badge.interview {
+    background: #fdf3dd;
+
+    color: #ffb222;
+}
+
+
+.status-badge.accepted {
+    background: #eaf9ef;
+
+    color: #159447;
+}
+
+
+.status-badge.rejected {
+    background: #fff0ef;
+
+    color: #e24b42;
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.application-date {
+    color: #182e5b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ACTION
+   ========================================================= */
+
+.application-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    height: 34px;
+    min-width: 0;
+}
+
+.application-action button {
+    cursor: pointer;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   DETAIL BUTTON
+   ========================================================= */
+
+.detail-btn {
+    height: 40px;
+    border: 2px solid #5884d560 !important;
+    background: white;
+    color: #386ad3 !important;
+    font-weight: 500;
+    padding: 0 16px;
+    border-radius: 7px;
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.detail-btn:hover {
+    border-color: #5883d5;
+    background: #f7f9fc;
+    border: 2px solid #182e5b !important;
+}
+
+/* ตัวครอบปุ่มสามจุด */
+.action-menu-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    margin-top: -3px
+}
+
+
+/* =========================================================
+   MORE BUTTON
+   ========================================================= */
+
+.action-menu-wrapper {
+    position: relative;
+}
+
+
+.more-btn {
+    width: 37px;
+    height: 40px;
+    border: 2px solid #d9dee8a8;
+    background: white;
+    color: #182e5b;
+    border-radius: 7px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -3px;
+}
+
+
+.more-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+
+.more-btn:hover {
+    background: #f7f9fc;
+    border-color: #5179cf;
+    color: #5179cf;
+}
+
+
+/* ================= CANCEL APPLICATION POPUP ================= */
+
+.my-jobs-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(24, 46, 91, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.my-jobs-popup {
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    animation: myJobsPopupShow 0.2s ease;
+}
+
+.my-jobs-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #8a8f98;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.my-jobs-popup-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.my-jobs-popup-close:hover {
+    background: #f3f4f6;
+    color: #182e5b;
+}
+.my-jobs-popup-close:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.my-jobs-popup-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-jobs-popup-icon svg {
+    width: 68px;
+    height: 68px;
+}
+
+.my-jobs-popup.confirm .my-jobs-popup-icon {
+    color: #e04b4b !important;
+}
+
+.my-jobs-popup.confirm h3 {
+    color: #d43d3d !important;
+}
+
+.my-jobs-popup.confirm p {
+    color: #667085;
+}
+
+.my-jobs-popup.confirm h3 {
+    color: #182e5b;
+}
+
+.my-jobs-popup.confirm p {
+    color: #667085;
+}
+
+.my-jobs-popup h3 {
+    margin: 0 0 10px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.my-jobs-popup p {
+    margin: 0 0 24px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.my-jobs-popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.my-jobs-popup-btn {
+    min-width: 110px;
+    min-height: 42px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.my-jobs-popup-btn:hover {
+    background: #03738f;
+}
+
+.my-jobs-popup-btn.secondary {
+    background: #eef0f5;
+    color: #182e5b;
+}
+
+.my-jobs-popup-btn.secondary:hover {
+    background: #e1e5ed;
+}
+
+.my-jobs-popup-btn.danger {
+    background: #e04b4b;
+}
+
+.my-jobs-popup-btn.danger:hover {
+    background: #d43d3d;
+}
+
+.my-jobs-popup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.my-jobs-popup.success h3{
+    color: #0e4e52;
+}
+.my-jobs-popup.success svg{
+    color: #4dba92;
+}
+.my-jobs-popup.success p{
+    color: #858d9e;
+}
+
+.my-jobs-popup.success .my-jobs-popup-btn:not(.secondary):not(.danger) {
+    background: #4dba92;
+}
+
+.my-jobs-popup.success .my-jobs-popup-btn:not(.secondary):not(.danger):hover {
+    background: #3fa982;
+}
+.my-jobs-popup.error .my-jobs-popup-btn:not(.secondary):not(.danger) {
+    background: #e04b4b;
+}
+
+.my-jobs-popup.error .my-jobs-popup-btn:not(.secondary):not(.danger):hover {
+    background: #d43d3d;
+}
+@keyframes myJobsPopupIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .my-jobs-popup {
+        padding: 32px 20px 24px;
+    }
+
+    .my-jobs-popup h3 {
+        font-size: 19px;
+    }
+
+    .my-jobs-popup-actions {
+        gap: 8px;
+    }
+
+    .my-jobs-popup-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   ACTION DROPDOWN
+   ========================================================= */
+
+.action-menu {
+    position: absolute;
+    top: calc(100% + 7px);
+    right: 0;
+    min-width: 180px;
+
+    background: white;
+    border: 1px solid #e3e7ee;
+    border-radius: 9px;
+    padding: 5px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+    z-index: 100;
+}
+
+/* =========================================================
+   CANCEL APPLICATION
+   ========================================================= */
+
+.cancel-application-btn {
+    width: 100%;
+    border: none !important;
+    background: transparent !important;
+    color: #e24b42 !important;
+
+    padding: 9px 10px !important;
+    text-align: left;
+    border-radius: 6px;
+    font-size: 12px !important;
+    white-space: nowrap;
+}
+
+.cancel-application-btn:hover {
+    background: #fff0ef !important;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.application-progress {
+    grid-column: 1 / -1;
+
+    padding-top: 18px;
+
+    position: relative;
+}
+
+
+.progress-line {
+    position: absolute;
+
+    top: 25px;
+
+    left: 100px;
+
+    right: 30px;
+
+    width: 80%;
+
+    height: 3px;
+
+    background: #e5e8ee;
+
+    z-index: 0;
+}
+
+
+.progress-line-active {
+    height: 100%;
+
+    background: #fc6027;
+
+    transition: width 0.3s ease;
+}
+
+
+.progress-steps {
+    position: relative;
+
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+}
+
+
+.step {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.step-dot {
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    border: 2px solid #c7ccda;
+
+    background: #c7ccda;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.step-dot svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+.step.active .step-dot {
+    background: #fc6027;
+
+    border-color: #fc6027;
+
+    color: white;
+}
+
+
+.step span {
+    color: #182e5b;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+.step.active span {
+    color: #fc6027;
+
+    font-weight: 600;
+}
+
+
+.step small {
+    margin-top: -2px;
+
+    font-size: 10px;
+
+    color: #182e5b;
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.no-applications {
+    background: white;
+
+    border-radius: 16px;
+
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #8993a2;
+}
+
+
+.no-applications svg {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.no-applications h3 {
+    margin: 0 0 5px;
+
+    color: #182e5b;
+}
+
+
+.no-applications p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FILTER DROPDOWN
+   ========================================================= */
+
+.filter-wrapper {
+    position: relative;
+}
+
+
+.filter-dropdown {
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    width: 250px;
+
+    background: white;
+
+    border: 1px solid #e3e7ee;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.10);
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   FILTER HEADER
+   ========================================================= */
+
+.filter-dropdown-header {
+    padding-bottom: 12px;
+
+    margin-bottom: 14px;
+
+    border-bottom: 1px solid #edf0f5;
+
+    color: #182e5b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FILTER GROUP
+   ========================================================= */
+
+.filter-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 15px;
+}
+
+
+.filter-group label {
+    color: #182e5b;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FILTER SELECT
+   ========================================================= */
+
+.filter-group select {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid #d9dee8;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #182e5b;
+
+    font-size: 12px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+.filter-group select:focus {
+    border-color: #5179cf;
+}
+
+
+/* =========================================================
+   FILTER RESET
+   ========================================================= */
+
+.filter-reset {
+    width: 100%;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #f5f7fa;
+
+    color: #5179cf;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+.filter-reset:hover {
+    background: #eef2f9;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   <= 1150px
+   --------------------------------------------------------- */
+
+@media (max-width: 1150px) {
+
+    .my-jobs-page {
+        padding: 32px 30px 50px 270px;
+    }
+
+    .my-jobs-sidebar {
+        width: 230px;
+    }
+
+    .my-jobs-header h1 {
+        font-size: 31px;
+    }
+
+    .applications-table-header {
+        display: none;
+    }
+
+    .application-card {
+        grid-template-columns: 1fr 150px;
+    }
+
+    .application-action {
+        grid-column: 2;
+    }
+
+    .application-progress {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   <= 900px
+   Sidebar กลับมาอยู่ด้านบน
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .my-jobs-page {
+        width: 100%;
+
+        padding: 20px 30px 50px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .my-jobs-sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        min-height: auto;
+
+        padding: 18px;
+
+        border: none;
+
+        border-radius: 14px;
+
+        box-shadow:
+            0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .my-jobs-main {
+        width: 100%;
+    }
+
+    .user-menu {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 5px;
+    }
+
+    .sidebar-bottom {
+        margin-top: 15px;
+    }
+
+    .job-search-area {
+        flex-direction: column;
+    }
+
+    .job-search-box {
+        width: 100%;
+    }
+
+    .filter-btn {
+        justify-content: center;
+    }
+
+    .application-card {
+        grid-template-columns: 1fr 150px;
+    }
+}
+
+.job-company-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.job-company-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+}
+
+.company-logo-fallback {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #048bad;
+    font-size: 24px;
+}
+/* ---------------------------------------------------------
+   <= 650px
+   --------------------------------------------------------- */
+
+@media (max-width: 650px) {
+
+    .my-jobs-page {
+        padding: 15px;
+    }
+
+    .my-jobs-sidebar {
+        padding: 15px;
+    }
+
+    .profile-box {
+        padding-bottom: 12px;
+    }
+
+    .user-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .my-jobs-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .my-jobs-header h1 {
+        font-size: 27px;
+    }
+
+    .my-jobs-header p {
+        margin: 5px 0 0;
+    }
+
+    .job-search-area {
+        width: 100%;
+    }
+
+    .job-search-filter {
+        width: 100%;
+    }
+
+    .filter-wrapper {
+        width: 100%;
+    }
+
+    .filter-btn {
+        width: 100%;
+    }
+
+    .filter-dropdown {
+        width: 100%;
+        left: 0;
+        right: auto;
+    }
+
+    .application-card {
+        grid-template-columns: 1fr;
+    }
+
+    .application-action {
+        grid-column: auto;
+
+        justify-content: flex-start;
+    }
+
+    .application-progress {
+        grid-column: auto;
+
+        overflow-x: auto;
+    }
+
+    .progress-steps {
+        min-width: 500px;
+    }
+
+    .progress-line {
+        min-width: 440px;
+    }
+
+    .application-status {
+        position: absolute;
+
+        right: 20px;
+        top: 20px;
+       
+    }
+
+    .application-job {
+        padding-right: 0;
+    }
+
+    .application-job h3 {
+        font-size: 15px;
+    }
+
+    .job-meta {
+        gap: 8px;
+    }
+}

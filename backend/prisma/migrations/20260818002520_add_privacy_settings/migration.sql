@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `user` ADD COLUMN `hideEmail` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `hidePhone` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `publicProfile` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `searchable` BOOLEAN NOT NULL DEFAULT true;

@@ -1,0 +1,1140 @@
+/* =========================
+LEFT
+========================= */
+
+.applicant-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.application-date-heading {
+    display: inline-flex;
+    align-items: center;
+    /* gap: 6px; */
+}
+
+.sort-date-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border: none;
+    background: transparent;
+    color: #182e5b;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+
+.sort-date-button svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* =========================
+JOB CARD
+========================= */
+
+.applicant-job-card,
+.applicant-filter-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.applicant-job-card h2,
+.applicant-filter-card h2 {
+    margin: 0 0 20px;
+    color: #182e5b;
+    font-size: 18px;
+}
+
+.applicant-job-card h3 {
+    margin: 0 0 22px;
+    color: #182e5b;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+JOB INFO
+========================= */
+
+.applicant-job-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.applicant-job-info-row {
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 10px;
+}
+
+.job-info-icon {
+    width: 17px;
+    height: 17px;
+    color: #182e5b;
+    margin-top: 2px;
+}
+
+.job-info-content {
+    display: grid;
+    grid-template-columns: 95px minmax(0, 1fr);
+    align-items: start;
+    gap: 8px;
+    min-width: 0;
+}
+
+.applicant-job-info .job-info-content span {
+    min-width: 0;
+    color: #182e5b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.applicant-job-info .job-info-content p {
+    margin: 0;
+    color: #182e5b;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.applicant-job-info>div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.applicant-job-info span {
+    color: #888;
+    font-size: 13px;
+    min-width: 70px;
+}
+
+.applicant-job-info p {
+    margin: 0;
+    color: #182e5b;
+    font-size: 14px;
+}
+
+
+/* =========================
+VIEW DETAIL
+========================= */
+
+.view-job-detail-btn {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 10px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #182e5b;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 0 0;
+}
+
+.view-job-detail-btn span {
+    font-size: 22px;
+    line-height: 1;
+    position: relative;
+    top: -0.5px;
+}
+
+.view-job-detail-btn:hover {
+    color: #048bad;
+}
+
+.clear-filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+}
+
+/* =========================
+FILTER
+========================= */
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.filter-section h3 {
+    margin: 0 0 4px;
+
+    color: #182e5b;
+    font-size: 15px;
+}
+
+
+/* =========================
+CHECKBOX
+========================= */
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #182e5b;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.filter-checkbox input {
+    width: 17px;
+    height: 17px;
+    accent-color: #fc6027;
+    cursor: pointer;
+}
+
+
+/* =========================
+CLEAR FILTER
+========================= */
+
+.clear-filter-btn {
+    width: 100%;
+
+    margin-top: 22px;
+    padding: 11px;
+
+    border: 2px solid #e1e4e8;
+
+    background: white;
+    color: #182e5b;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.clear-filter-btn:hover {
+    background: #f7f7f7;
+}
+
+/* =========================
+   RIGHT
+========================= */
+
+.applicant-right {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* =========================
+   HEADER APPLICANT
+========================= */
+
+.applicant-header-card {
+    background: white;
+    /* padding: 25px 28px; */
+    /* margin-bottom: -20px; */
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* แถวหลัก */
+.applicant-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+}
+
+/* =========================
+   ข้อความฝั่งซ้าย
+========================= */
+
+.applicant-header-text {
+    min-width: 0;
+
+}
+
+.applicant-header-text h1 {
+    margin: 0 0 6px;
+    color: #182e5b;
+    font-size: 32px;
+    font-weight: 600;
+
+}
+
+.applicant-header-text p {
+    margin: 0;
+    color: #182e5b;
+    font-size: 14px;
+
+}
+
+/* =========================
+   ค้นหา + ส่งออก
+========================= */
+
+.applicant-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* ช่องค้นหา */
+
+.applicant-search {
+    width: 350px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 13px;
+    border: 2px solid #e1e5eabd !important;
+    border-radius: 7px !important;
+    background: white !important;
+}
+
+.applicant-search svg {
+    color: #888;
+    flex-shrink: 0;
+}
+
+.applicant-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+    color: #333;
+}
+
+.applicant-search input::placeholder {
+    color: #aaa;
+}
+
+/* =========================
+   ปุ่มส่งออก
+========================= */
+
+.export-applicant-btn {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 20px;
+    border: 1px solid #dfe3e8;
+    background: white;
+    color: #182e5b;
+    border-radius: 9px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.export-applicant-btn:hover {
+    background: #f7f9fb;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.applicant-search {
+    margin-top: 20px;
+
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    border: 1px solid #e1e4e8;
+    border-radius: 9px;
+
+    background: #fafafa;
+}
+
+.applicant-search svg {
+    color: #888;
+}
+
+.applicant-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.applicant-summary-card {
+    background: white;
+    border-radius: 10px;
+    /* padding: 12px; */
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* gap: 8px; */
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+    border: 2px solid rgba(128, 142, 145, 0.116);
+}
+
+.applicant-summary-item {
+    border: none;
+    background: transparent;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    color: #182e5b !important;
+
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* border: 2px solid rgba(129, 129, 129, 0.123); */
+}
+
+.applicant-summary-item:hover {
+    background: #f5f8fa;
+}
+
+.applicant-summary-item.active {
+    background: #f4f7fc;
+    border: 2px solid #e1ebfc;
+
+}
+
+.applicant-summary-item.active span {
+    color: #4b70d9;
+}
+
+.applicant-summary-item.active small {
+    color: #4b70d9;
+}
+
+.applicant-summary-item.active strong {
+    color: #4b70d9;
+}
+
+.applicant-summary-item span {
+    display: block;
+
+    font-size: 15px;
+
+    color: #182e5b;
+    font-weight: 500;
+}
+
+.summary-count {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.summary-count strong {
+    font-size: 24px;
+    color: #048bad;
+}
+
+.summary-count small {
+    font-size: 12px;
+    color: #182e5b;
+}
+
+.applicant-summary-item strong {
+    margin-top: 5px;
+
+    color: #182e5b;
+
+    font-size: 25px;
+}
+
+.applicant-summary-item small {
+    color: #182e5b;
+    font-size: 12px;
+}
+
+
+/* =========================
+   APPLICANT LIST
+========================= */
+
+.applicant-list-card {
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: visible;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.applicant-job-image {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.applicant-job-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.applicant-job-status {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.applicant-job-status.open {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.applicant-job-status.closed {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* หัว */
+
+.applicant-list-header {
+    display: grid;
+    grid-template-columns:
+        1.7fr 0.9fr 0.6fr 1fr 0.9fr 0.8fr;
+    gap: 15px;
+    padding: 16px 20px;
+    background: #f6f7f9;
+    color: #182e5b;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    /* border: 1px solid red; */
+}
+
+
+/* แถว */
+
+.applicant-list-row {
+    display: grid;
+
+    grid-template-columns:
+        1.7fr 0.7fr 0.8fr 0.9fr 1fr 0.8fr;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 18px 20px;
+
+    /* border-top: 1px solid #eeeeee; */
+}
+
+
+/* =========================
+   PERSON
+========================= */
+
+.applicant-person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.applicant-avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #eef7f9;
+    color: #048bad;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.applicant-avatar>img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.applicant-avatar-fallback {
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background: #eef7f9;
+    color: #048bad;
+}
+
+.applicant-person h3 {
+    margin: 0 0 4px;
+
+    color: #182e5b;
+
+    font-size: 14px;
+}
+
+.applicant-person p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.applicant-date {
+    color: #182e5b;
+    font-size: 13px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.applicant-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+.applicant-status.pending {
+    background: #eaf4ff;
+    color: #2876c7;
+}
+
+.applicant-status.interview {
+    background: #fff5df;
+    color: #c58a16;
+}
+
+.applicant-status.accepted {
+    background: #e6f4e8;
+    color: #4e9374;
+}
+
+.applicant-status.rejected {
+    background: #fde5e3;
+    color: #dd4646;
+}
+
+
+/* =========================
+   QUALIFICATION
+========================= */
+
+.applicant-qualification {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    min-width: 0;
+}
+
+.matched-skill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 100%;
+    color: #15803d;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* สีไอคอน */
+.matched-skill-icon {
+    color: #16a34a;
+    flex-shrink: 0;
+}
+
+/* สีข้อความ Skill */
+.matched-skill-text {
+    color: #182e5b;
+    font-weight: 400;
+}
+
+.matched-skill svg {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+}
+
+.no-matched-skill {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.applicant-resume {
+    min-width: 0;
+}
+
+.resume-file {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    max-width: 210px;
+    padding: 4px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.resume-file-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px !important;
+    height: 30px !important;
+    border: none;
+    background: transparent !important;
+    border-radius: 0;
+
+}
+
+.resume-file-icon svg {
+    width: 50px;
+    height: 50px;
+    stroke-width: 0.4 !important;
+    color: #ec3a3a;
+}
+
+/* .resume-file-icon span {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 2px;
+    background: #fff;
+    color: #dc2626;
+    font-size: 7px;
+    font-weight: 700;
+} */
+.resume-file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.resume-file-name {
+    overflow: hidden;
+    color: #182e5b !important;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.resume-file-size {
+    color: #182e5b !important;
+    font-size: 10px !important;
+    font-weight: 500;
+}
+
+.resume-file:hover .resume-file-name {
+    color: #0284c7;
+}
+
+.no-resume {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* =========================
+   RESUME
+========================= */
+
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    padding: 7px 9px;
+    background: white;
+    border-radius: 7px;
+    color: #182e5b;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.resume-btn svg {
+    flex-shrink: 0;
+}
+
+.resume-btn span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.no-resume {
+    display: block;
+    color: #9ca3af;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================
+   MANAGE
+========================= */
+.applicant-manage {
+    position: relative;
+}
+
+.manage-wrapper {
+    position: relative;
+}
+
+.manage-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+
+    width: 210px;
+    min-width: 210px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 8px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    z-index: 9999;
+}
+
+.manage-dropdown button {
+    width: 100%;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+
+    text-align: left;
+
+    font-size: 14px;
+    color: #333;
+
+    border-radius: 8px;
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.manage-dropdown button:hover {
+    background: #f3f6f8;
+}
+
+.applicant-manage {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.view-applicant-btn {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dfe3e8;
+
+    background: white;
+
+    border-radius: 7px;
+
+    color: #182e5b;
+
+    cursor: pointer;
+}
+
+.manage-applicant-btn {
+    padding: 8px 10px;
+
+    border: none;
+
+    background: #182e5b;
+
+    color: white;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.applicants-page {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 0 60px;
+
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 25px;
+
+    align-items: start;
+}
+
+.manage-wrapper {
+    position: relative;
+}
+
+.manage-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 180px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+}
+
+.manage-dropdown button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 12px;
+    text-align: left;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+}
+
+.manage-dropdown button:hover {
+    background: #f5f7fa;
+}
+
+.manage-dropdown button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Breadcrumb */
+.applicant-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.applicant-breadcrumb button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #182e5bdc;
+    font: inherit;
+    cursor: pointer;
+
+}
+
+.applicant-breadcrumb button:hover {
+    color: #fc6027;
+}
+
+.applicant-breadcrumb>span {
+    color: #182e5b;
+}
+
+.applicant-breadcrumb .current {
+    color: #182e5b;
+    font-weight: 500;
+}
+
+
+.applicant-person-info {
+    min-width: 0;
+}
+
+.applicant-person-info h3 {
+    margin: 0 0 6px;
+}
+
+.applicant-email,
+.applicant-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 4px 0;
+    font-size: 12px;
+    color: #182e5bdc !important;
+    line-height: 2;
+}
+
+.applicant-email svg,
+.applicant-phone svg {
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.applicant-email span,
+.applicant-phone span {
+    overflow-wrap: anywhere;
+}
+
+
+/* Skill ที่ผู้สมัครมี */
+.applicant-qualification .matched-skill.is-matched {
+    color: #15803d;
+}
+
+/* Skill ที่ผู้สมัครไม่มีหรือไม่ได้กรอก */
+.applicant-qualification .matched-skill.not-matched {
+    color: #dc2626;
+}
+
+.applicant-qualification .unmatched-skill-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ไฟล์ประสบการณ์และโปรเจกต์ */
+.applicant-project-files {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.applicant-project-file {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+    padding: 7px 9px;
+    border: 1px solid #dce8ed;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #048bad;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 12px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.applicant-project-file:hover {
+    background: #eaf8fc;
+    border-color: #048bad;
+}
+
+.applicant-project-file>svg:first-child {
+    flex-shrink: 0;
+    font-size: 17px;
+}
+
+.applicant-project-file>svg:last-child {
+    flex-shrink: 0;
+    margin-left: auto;
+    font-size: 15px;
+}
+
+.applicant-project-file-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

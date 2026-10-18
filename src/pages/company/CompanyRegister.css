@@ -1,0 +1,264 @@
+.register-container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background: #f5f7fa;
+}
+.register-company {
+    width: 80%;
+    color: #182e5b;
+    margin: 10px 0 12px;
+}
+
+.register-company h3 {
+    margin: 0;
+    text-align: left;
+}
+/* ================= LEFT ================= */
+.register-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    
+}
+.register-benefit {
+    width: 420px;
+    margin-top: 70px;
+}
+.register-benefit h2 {
+    font-size: 20px;
+    color: #0B1A3E;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* ================= RIGHT ================= */
+.register-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+    background: white;
+    /* ลบ border debug */
+}
+
+/* card */
+.register-card {
+    width: 500px;
+    min-height: 750px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* title */
+.register-title-company {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #182e5b;
+}
+.register-title-company span{
+    color: #fc6027;
+}
+.register-user{
+    color: #182e5b;
+}
+.register-account{
+    color: #182e5b;
+}
+/* ================= INPUT ================= */
+.box-input {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    gap: 8px;
+}
+.register-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+}
+.register-input:focus,
+.input-focus {
+    border-color: #048BAD;
+}
+
+.input-error {
+    border-color: #E53935;
+}
+.error-text {
+    width: 100%;
+    font-size: 13px;
+    color: #E53935;
+    margin: 0;
+}
+
+/* password */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+.password-input {
+    padding-right: 45px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+/* checkbox */
+.checkbox-container {
+    display: flex;
+    gap: 8px;
+    width: 80%;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.checkbox-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid #c9c9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.checkbox-circle.checked {
+    background: #048BAD;
+    color: white;
+    border: none;
+}
+
+.register-link {
+    color: #2653fa;
+    cursor: pointer;
+}
+.register-link:hover {
+    text-decoration: underline;
+}
+.register-user,
+.register-account {
+    width: 80%;          /* เท่ากับ input */
+    align-self: flex-start;
+    margin-left: 10%;    /* จัดให้ตรงกับ input */
+    color: #182e5b;
+}
+
+.register-user h3,
+.register-account h3 {
+    margin: 0 0 12px;
+    text-align: left;
+}
+
+.terms-error {
+    color: #E53935;
+    font-size: 13px;
+    width: 80%;
+    text-align: left;
+    padding-left: 28px;
+    box-sizing: border-box;
+}
+
+/* button */
+.register-button {
+    width: 80%;
+    padding: 14px;
+    margin-top: 40px;
+    background: #fc6027;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.register-button:hover {
+    background: #ff7645;
+}
+.register-button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+.register-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+/* ================= LEFT BENEFIT ================= */
+.benefit-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 30px;
+    
+}
+
+.benefit-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fdf0ea;
+    color: #fc6027;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.benefit-item h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: #182e5b;
+    font-weight: 500;
+}
+
+.benefit-item p {
+    margin: 0;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: -5px;
+}
+
+.register-benefit span{
+    color: #fc6027;
+}
+.register-benefit p{
+    color: #182e5b;
+    font-size: 13px;
+}
+
+/* รูปภาพฝั่งซ้าย */
+.register-image {
+    display: block;
+    width: 100%;
+    max-width: 500px;   /* ปรับขนาดตามต้องการ */
+    margin: 20px auto 35px;
+    object-fit: contain;
+}
+
+/* ไอค่อน */

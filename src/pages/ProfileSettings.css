@@ -1,0 +1,1216 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.profile-settings-page,
+.profile-settings-page * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE
+   JSX: .profile-settings-page
+   หน้าหลักของหน้าตั้งค่าบัญชี
+   ========================================================= */
+
+.profile-settings-page {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    background: #f6f8fb;
+
+    /* เว้นพื้นที่ให้ Sidebar ด้านซ้าย */
+    padding: 32px 50px 60px 290px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   JSX: .profile-settings-layout
+
+   Sidebar เป็น fixed
+   Main อยู่ด้านขวา
+   ========================================================= */
+
+.profile-settings-layout {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   JSX:
+   <aside className="sidebar-card">
+   ========================================================= */
+
+.profile-settings-page .sidebar-card {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    margin: 0 !important;
+
+    padding: 80px 16px 20px !important;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e7eb;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    box-sizing: border-box;
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   SIDEBAR BUTTON
+   ========================================================= */
+
+.profile-settings-page .sidebar-card button {
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    padding: 14px 14px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: #182e5b;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.2s;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SIDEBAR ICON
+   ========================================================= */
+
+.profile-settings-page .sidebar-card button svg {
+    font-size: 18px;
+
+    color: #182e5b;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR HOVER
+   ========================================================= */
+
+.profile-settings-page .sidebar-card button:hover {
+    background: #ffc4ae3a;
+
+    color: #fc6027;
+
+    font-weight: 600;
+}
+
+
+.profile-settings-page .sidebar-card button:hover svg {
+    color: #f76f3a;
+}
+
+
+/* =========================================================
+   SIDEBAR ACTIVE
+   ========================================================= */
+
+.profile-settings-page .sidebar-card button.active {
+    background: #ffc4ae3a;
+
+    color: #fc6027;
+
+    font-weight: 600;
+}
+
+
+.profile-settings-page .sidebar-card button.active svg {
+    color: #f76f3a;
+}
+
+
+/* =========================================================
+   MAIN
+   JSX: .profile-settings-main
+   พื้นที่เนื้อหาหลักทางขวาของ Sidebar
+   ========================================================= */
+
+.profile-settings-main {
+    width: 100%;
+
+    min-width: 0;
+
+    margin-left: 0 !important;
+}
+
+
+/* =========================================================
+   HEADER
+   JSX: .settings-header-card
+   ========================================================= */
+
+.settings-header-card {
+    width: 100%;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   HEADER TITLE
+   ========================================================= */
+
+.settings-header-card h1 {
+    margin: 0 0 3px;
+
+    color: #182e5b;
+
+    font-size: 27px;
+}
+
+
+/* =========================================================
+   HEADER DESCRIPTION
+   ========================================================= */
+
+.settings-header-card p {
+    margin: 0;
+
+    color: #182e5b;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CONTENT GRID
+   JSX: .settings-content-grid
+   ========================================================= */
+
+.settings-content-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 20px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   GENERAL CARD
+   JSX: .settings-card
+   ========================================================= */
+
+.settings-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    padding: 28px 30px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   ACCOUNT CARD
+   JSX: .account-card
+   ========================================================= */
+
+.account-card {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   JSX: .settings-card-header
+   ========================================================= */
+
+.settings-card-header {
+    padding-bottom: 20px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.settings-card-header h2 {
+    margin: 0 0 5px;
+
+    color: #182e5b;
+
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.settings-card-header p {
+    margin: 0;
+
+    color: #7a8495;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ACCOUNT FORM
+   JSX: .account-form-grid
+   ========================================================= */
+
+.account-form-grid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   ACCOUNT FORM ROW
+   ========================================================= */
+
+.account-form-grid .settings-form-group {
+    display: grid;
+
+    grid-template-columns: 130px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   ACCOUNT FORM LABEL
+   ========================================================= */
+
+.account-form-grid .settings-form-group label {
+    margin: 0;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ACCOUNT INPUT
+   ========================================================= */
+
+.account-form-grid .settings-form-group input {
+    width: 100%;
+}
+
+
+/* =========================================================
+   GENDER OPTIONS
+   ========================================================= */
+
+.account-form-grid .settings-form-group .gender-options {
+    width: 100%;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.settings-form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.settings-form-group label {
+    color: #182e5b;
+
+    font-size: 14px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   INPUT / TEXTAREA
+   ========================================================= */
+
+.settings-form-group input,
+.settings-form-group textarea {
+    width: 100%;
+
+    border: 1px solid #d9dee7;
+
+    border-radius: 8px;
+
+    padding: 11px 13px;
+
+    color: #182e5b;
+
+    font-size: 14px;
+
+    background: #ffffff;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.settings-form-group textarea {
+    resize: vertical;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+   ========================================================= */
+
+.settings-form-group input:focus,
+.settings-form-group textarea:focus {
+    border-color: #f76f3a;
+}
+
+
+/* =========================================================
+   DISABLED
+   ========================================================= */
+
+.settings-form-group input:disabled,
+.settings-form-group textarea:disabled {
+    background: #f5f7fa;
+
+    color: #68748b;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FULL WIDTH
+   JSX: .full-width
+   ========================================================= */
+
+.full-width {
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   GENDER
+   ========================================================= */
+
+.gender-options {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   GENDER BUTTON
+   ========================================================= */
+
+.gender-btn {
+    flex: 1;
+
+    padding: 10px;
+
+    border: 1px solid #d9dee7;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    color: #182e5b;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+
+.gender-btn:hover:not(:disabled) {
+    border-color: #f76f3a;
+    background-color: #f76f3a;
+    color: white;
+}
+
+
+/* =========================================================
+   GENDER ACTIVE
+   ========================================================= */
+
+.gender-btn.active {
+    border-color: #f76f3a;
+
+    background: #f76f3a;
+
+    color: white;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   GENDER DISABLED
+   ========================================================= */
+
+.gender-btn:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   ACCOUNT ACTIONS
+   ========================================================= */
+
+.account-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   SAVE ACCOUNT BUTTON
+   ========================================================= */
+
+.save-account-btn {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #fc6027;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.save-account-btn:hover {
+    background: #ff7645;
+}
+
+
+.save-account-btn:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN
+   JSX: .settings-right-column
+   ========================================================= */
+
+.settings-right-column {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   PASSWORD FORM
+   JSX: .password-form
+   ========================================================= */
+
+.password-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   PASSWORD INPUT WRAPPER
+   ========================================================= */
+
+.password-input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   PASSWORD INPUT
+   ========================================================= */
+
+.password-input-wrapper input {
+    width: 100%;
+
+    padding-right: 46px;
+}
+
+
+/* =========================================================
+   PASSWORD EYE BUTTON
+   ========================================================= */
+
+.password-input-wrapper button {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 45px;
+    height: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #68748b;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.password-input-wrapper button:hover {
+    color: #182e5b;
+}
+
+
+/* =========================================================
+   PASSWORD ERROR
+   ========================================================= */
+
+.password-error {
+    margin: 6px 0 0;
+
+    color: #e53935;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   PASSWORD ACTIONS
+   ========================================================= */
+
+.password-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   CHANGE PASSWORD BUTTON
+   ========================================================= */
+
+.change-password-btn {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    border: none;
+
+    background: #fc6027;
+
+    color: #ffffff;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.change-password-btn:hover {
+    opacity: 0.9;
+}
+
+
+.change-password-btn:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ACCOUNT MANAGEMENT
+   JSX: .danger-card
+   ========================================================= */
+
+.account-danger-option {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   DANGER TITLE
+   ========================================================= */
+
+.account-danger-option h3 {
+    margin: 0 0 6px;
+
+    color: #182e5b;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   DANGER DESCRIPTION
+   ========================================================= */
+
+.account-danger-option p {
+    margin: 0;
+
+    color: #182e5b;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACCOUNT MANAGEMENT BUTTONS
+   ========================================================= */
+
+.logout-all-btn,
+.delete-account-btn {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition: 0.2s;
+}
+
+
+/* =========================================================
+   LOGOUT ALL
+   ========================================================= */
+
+.logout-all-btn {
+    border: 2px solid #d6dbe4;
+
+    background: #ffffff;
+
+    color: #182e5b;
+}
+
+
+.logout-all-btn:hover {
+    background: #182e5b;
+    color: white;
+    border: 2px solid #182e5b;
+}
+
+
+/* =========================================================
+   DELETE ACCOUNT
+   ========================================================= */
+
+.delete-account-btn {
+    border: none;
+    background: white;
+    color: #f83934;
+    border: 2px solid #fbd3d2;
+}
+
+
+.delete-account-btn:hover {
+    background: #f83934;
+    border: 2px solid #f83934;
+    color: white;
+}
+
+
+/* =========================================================
+   DANGER DIVIDER
+   ========================================================= */
+
+.danger-divider {
+    height: 1px;
+
+    background: #edf0f4;
+
+    margin: 22px 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   <= 1150px
+   --------------------------------------------------------- */
+
+@media (max-width: 1150px) {
+
+    .profile-settings-page {
+        padding: 32px 30px 60px 270px;
+    }
+
+    .profile-settings-page .sidebar-card {
+        width: 230px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   <= 900px
+   Sidebar กลับมาอยู่ด้านบน
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .profile-settings-page {
+        padding: 20px 30px 50px;
+    }
+
+    .profile-settings-layout {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .profile-settings-page .sidebar-card {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        padding: 12px !important;
+
+        border: none;
+
+        border-radius: 14px;
+
+        box-shadow:
+            0 2px 10px rgba(0, 0, 0, 0.06);
+
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 5px;
+    }
+
+    .profile-settings-main {
+        width: 100%;
+    }
+
+    .settings-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .account-card {
+        height: auto;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   <= 650px
+   --------------------------------------------------------- */
+
+@media (max-width: 650px) {
+
+    .profile-settings-page {
+        padding: 15px;
+    }
+
+    .profile-settings-page .sidebar-card {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-header-card {
+        margin-bottom: 15px;
+    }
+
+    .settings-header-card h1 {
+        font-size: 24px;
+    }
+
+    .settings-card {
+        padding: 20px;
+    }
+
+    .account-form-grid .settings-form-group {
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+
+        align-items: stretch;
+    }
+
+    .account-form-grid .settings-form-group label {
+        white-space: normal;
+    }
+
+    .account-actions {
+        justify-content: stretch;
+    }
+
+    .save-account-btn {
+        width: 100%;
+    }
+
+    .account-danger-option {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .logout-all-btn,
+    .delete-account-btn {
+        width: 100%;
+    }
+}
+/* =========================================
+   SETTINGS POPUP
+========================================= */
+
+.settings-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(24, 46, 91, 0.38);
+    backdrop-filter: blur(2px);
+}
+
+.settings-popup {
+    position: relative;
+    width: 400px;
+    max-width: 100%;
+    padding: 36px 28px 28px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(24, 46, 91, 0.2);
+    text-align: center;
+    animation: settingsPopupShow 0.2s ease-out;
+}
+
+@keyframes settingsPopupShow {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ปุ่มปิด */
+
+.settings-popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #7b8495;
+    font-size: 21px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.settings-popup-close:hover {
+    background: #f0f3f7;
+    color: #182e5b;
+}
+
+/* ไอคอน */
+
+.settings-popup-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 66px;
+    line-height: 1;
+}
+
+.settings-popup.success .settings-popup-icon {
+    color: #4dba92;
+}
+
+.settings-popup.error .settings-popup-icon {
+    color: #e04b4b;
+}
+
+.settings-popup.confirm .settings-popup-icon {
+    color: #e04b4b;
+}
+
+/* หัวข้อและข้อความ */
+
+.settings-popup h3 {
+    margin: 0 0 10px;
+    color: #d43d3d;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.settings-popup p {
+    margin: 0 auto 24px;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* ปุ่มตกลง */
+
+.settings-popup-btn {
+    width: 80%;
+    min-height: 42px;
+    border: none;
+    border-radius: 8px;
+    background: #048bad;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.settings-popup-btn:hover {
+    background: #03738f;
+}
+
+.settings-popup.success .settings-popup-btn {
+    background: #4dba92;
+}
+
+.settings-popup.success .settings-popup-btn:hover {
+    background: #36a77d;
+}
+
+.settings-popup.error .settings-popup-btn {
+    background: #e04b4b;
+}
+
+.settings-popup.error .settings-popup-btn:hover {
+    background: #c93838;
+}
+
+/* ปุ่มยืนยันและยกเลิก */
+
+.settings-popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.settings-popup-actions button {
+    flex: 1;
+    min-height: 42px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.settings-popup-cancel {
+    border: 1px solid #eef0f5;
+    background: #eef0f5;
+    color: #182e5b;
+}
+
+.settings-popup-cancel:hover {
+    background: rgba(242, 245, 249, 0.973);
+    border:1px solid rgba(242, 245, 249, 0.911);
+}
+
+.settings-popup-confirm {
+    border: none;
+    background: #e04b4b;
+    color: #ffffff;
+}
+
+.settings-popup-confirm:hover {
+    background: #c93838;
+}
+
+@media (max-width: 480px) {
+    .settings-popup {
+        padding: 34px 22px 24px;
+    }
+
+    .settings-popup h3 {
+        font-size: 20px;
+    }
+
+    .settings-popup-icon {
+        font-size: 58px;
+    }
+}
+
+.settings-card-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.settings-card-title svg {
+    font-size: 45px;
+    color: #6b4330;
+    flex-shrink: 0;
+    background-color: #fcece7;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.settings-card-title h2 {
+    margin: 0;
+}

@@ -1,0 +1,1131 @@
+* {
+    box-sizing: border-box;
+}
+
+/* ================= Hero ================= */
+.company-editejob-page {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.editjob-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 35px 50px;
+    min-height: 260px;
+    margin-bottom: 25px;
+    gap: 40px;
+    /* border: 1px solid red; */
+
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 35px;
+    font-weight: 700;
+    color: #182e5b;
+    margin-top: 15px;
+    line-height: 0.3;
+}
+
+/* .hero-content span {
+    color: #fc6027;
+} */
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #182e5b;
+    max-width: 500px;
+
+    margin-bottom: 30px;
+}
+
+/* กล่องรายละเอียด */
+.editjob-form {
+    /* border: 1px solid red; */
+    padding: 30px;
+    margin-top: -25px;
+    border-radius: 15px;
+    /* background-color: #037994; */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* .editjob-form-card{
+    background:white;
+    
+} */
+
+
+.editjob-form-card h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #182e5b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-row-edit {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+
+}
+
+.form-row-edit .form-group-edit:first-child {
+    flex: 0.9;
+}
+
+.form-row-edit .form-group-edit:last-child {
+    flex: 1.3;
+}
+
+.form-row-edit .form-group-edit {
+    flex: 1;
+
+}
+
+.editjob-section h2 {
+    margin-bottom: 25px;
+}
+
+.form-group-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group-edit label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal !important;
+    color: #182e5b;
+
+}
+
+.form-group-edit label span {
+    color: red;
+
+}
+
+.step-circle {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F76F3A;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.form-group-edit input,
+.form-group-edit select {
+
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 15px;
+
+}
+
+
+.form-group-edit label {
+
+    font-weight: 600;
+
+}
+
+
+.form-group-edit span {
+
+    color: red;
+
+}
+
+
+.salary-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+
+.salary-btn {
+    padding: 11px 20px;
+    border: 1px solid #d9dee8;
+    border-radius: 9px;
+    background: white;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.salary-btn.active {
+    background: #048BAD;
+    border-color: #048BAD;
+    color: white;
+}
+
+
+.salary-input-box {
+    width: 400px;
+    height: 48px;
+    box-sizing: border-box;
+    margin-top: 12px;
+    padding: 0 15px;
+
+    border: 1px solid #d9dee8;
+    border-radius: 10px;
+
+    background: white;
+    color: #182e5b;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.salary-input-box::placeholder {
+    color: #a0a7b4;
+}
+
+.salary-input-box:focus {
+    border-color: #048BAD;
+    box-shadow: 0 0 0 3px rgba(4, 139, 173, 0.1);
+}
+
+.salary-input-box input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+
+
+.radio-box {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400 !important;
+}
+
+
+.salary-input {
+    margin-top: 15px;
+}
+
+.editjob-form-card .form-row-edit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.editjob-form-card .form-group-edit {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* รูปแบบการทำงาน */
+.work-type-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.work-type-btn {
+    padding: 11px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #182e5b;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.work-type-btn:hover {
+    border-color: #fc6027;
+    background-color: #fc6027;
+    color: white;
+}
+
+.work-type-btn.active {
+    background: #fc6027;
+    color: white;
+    border-color: #fc6027;
+}
+
+
+/* กล่องอัปโหลดโลโก้ */
+.logo-upload-box {
+    width: 100%;
+    min-height: 170px;
+
+    border: 2px dashed #d5dce5;
+    border-radius: 12px;
+
+    background: #fafcfd;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.logo-upload-box:hover {
+    border-color: #048BAD;
+    background: #f5fbfd;
+}
+
+.logo-upload-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f7fa;
+    color: #048BAD;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.logo-upload-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-upload-text strong {
+    color: #182e5b;
+    font-size: 15px;
+}
+
+.logo-upload-text span {
+    color: #888;
+    font-size: 12px;
+}
+
+.editjob-form-card textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.editjob-form-card textarea:focus {
+    outline: none;
+    border-color: #048bad;
+}
+
+/* ฝั่งขวา */
+.editjob-right {
+    width: 100%;
+    /* border: 1px solid red; */
+    margin-top: 20px;
+}
+
+
+.editjob-side-card {
+    width: 100%;
+    box-sizing: border-box;
+    color: #182e5b;
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.editjob-side-card h2 {
+
+    font-size: 17px;
+    margin-bottom: 20px;
+
+}
+
+.status-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 5px;
+    ;
+}
+
+
+.editjob-status-card {
+    background: #fef6f1;
+    color: #182e5b;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid #fdf0e9;
+}
+
+
+.editjob-status-card h2 {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.job-status-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    /* margin-bottom: 10px; */
+    color: #16a34a;
+    font-size: 23px;
+    font-weight: 600;
+    margin-top: -10px;
+}
+
+.change-status-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #048BAD;
+
+    background: white;
+
+    color: #048BAD;
+
+    cursor: pointer;
+
+}
+
+
+.change-status-btn:hover {
+
+    background: #048BAD;
+
+    color: white;
+
+}
+
+.editjob-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 25px;
+    align-items: start;
+
+}
+
+
+.editjob-form {
+
+    flex: 1;
+}
+
+
+.editjob-right {
+    width: 100%;
+    /* position: sticky; */
+    top: 100px;
+}
+
+
+.editjob-side-card {
+    background: white;
+    border-radius: 13px;
+    padding: 25px;
+    margin-bottom: 10px;
+}
+
+.publish-info {
+    margin-top: -10px;
+}
+
+.publish-info div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -15px;
+    color: #182e5b;
+    font-size: 14px;
+}
+
+.date-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* อัปโหลดโลโก้ */
+.logo-upload-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-upload-box-company {
+    width: 100%;
+    min-height: 150px;
+
+    border: 2px dashed #c7cdd8;
+    border-radius: 12px;
+    background: #fafbfc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    padding: 20px;
+
+    cursor: pointer;
+    text-align: center;
+
+    transition: 0.2s ease;
+}
+
+.logo-upload-box-company:hover {
+    border-color: #f76f3a;
+    background: #fff8f5;
+}
+
+.logo-upload-icon-company {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    background: #fff0eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #f76f3a;
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.logo-upload-text-company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-upload-text-company strong {
+    color: #182e5b;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.logo-upload-text-company span {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.logo-upload-box-company input[type="file"] {
+    display: none;
+}
+
+.logo-preview {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+}
+
+.logo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.upload-logo-btn {
+    width: 220px;
+    min-height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    background: white;
+    border: 2px dashed #048BAD;
+    border-radius: 12px;
+
+    color: #048BAD;
+    cursor: pointer;
+
+    transition: 0.2s;
+    padding: 10px;
+}
+
+.upload-logo-btn:hover {
+    background: #f0fbfd;
+}
+
+.upload-icon {
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+
+.upload-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #182e5b !important;
+}
+
+.upload-info {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #182e5b !important;
+}
+
+.salary-input-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.salary-input-box {
+    flex: 1;
+    margin-top: 0;
+}
+
+.salary-unit-select {
+    width: 160px;
+    padding: 12px 14px;
+    border: 1px solid #d5d9e2;
+    border-radius: 8px;
+    background: white;
+    color: #182e5b;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+}
+
+.salary-unit-select:focus {
+    border-color: #f76f3a;
+}
+
+/* ================= PREVIEW ================= */
+
+.editjob-preview-card {
+    background: white;
+    /* padding: 25px; */
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */
+    margin-top: -50px;
+    color: #182e5b;
+    /* margin-bottom: 15px; */
+
+}
+
+.job-preview-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    margin: 0 0 20px;
+    padding: 5px;
+}
+
+.preview-title-icon {
+    color: #048BAD;
+    font-size: 20px;
+}
+
+
+/* ตัวประกาศด้านใน */
+
+.preview-card {
+    /* border: 1px solid #e5e7eb; */
+    border-radius: 14px;
+    padding: 25px;
+    background: #fff;
+
+}
+
+
+/* Badge */
+
+.company-badge {
+    display: inline-block;
+    background: #eaf8fc;
+    color: #048BAD;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+
+/* Logo */
+
+.preview-logo {
+    width: 65px;
+    height: 65px;
+    /* border: 1px solid #eee; */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.preview-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* ตำแหน่ง */
+
+.preview-card h3 {
+    font-size: 20px;
+    margin: 0 0 8px;
+    color: #182e5b;
+}
+
+.preview-card>p {
+    color: #666;
+    font-size: 14px;
+    margin: 7px 0;
+}
+
+
+/* ข้อมูลประกาศ */
+
+.preview-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.preview-icon {
+    color: #048BAD;
+    flex-shrink: 0;
+}
+
+
+/* เส้น */
+
+.preview-card hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 18px 0;
+}
+
+
+/* หัวข้อรายละเอียด */
+
+.preview-card h4 {
+    color: #182e5b;
+    font-size: 15px;
+    margin: 18px 0 8px;
+}
+
+
+/* รายละเอียด */
+
+.preview-description {
+    line-height: 1.7;
+    color: #666;
+    font-size: 13px;
+}
+
+
+/* list */
+
+.preview-card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ติดต่อ */
+
+.preview-contact {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.preview-contact h4 {
+    margin-top: 0;
+}
+
+.preview-contact p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.contact-icon {
+    color: #048BAD;
+    flex-shrink: 0;
+}
+
+
+/* ปุ่มสมัคร */
+
+.btn-preview {
+    width: 100%;
+    margin-top: 15px;
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    background: #048BAD;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-preview:hover {
+    background: #03758f;
+}
+
+/* =========================
+    ปุ่มด้านล่างฟอร์ม
+========================= */
+
+.editjob-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.cancel-edit-btn {
+    height: 46px;
+    padding: 0 80px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.view-work-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    height: 46px;
+    padding: 0 80px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.save-edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    height: 46px;
+    padding: 0 75px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* ยกเลิก */
+.cancel-edit-btn {
+    background: white;
+    color: #182e5b;
+    border: 2px solid #dee2ebd7;
+}
+
+.cancel-edit-btn:hover {
+    background: #182e5b;
+    color: white;
+    border: 2px solid #182e5b;
+}
+
+/* ดูตัวอย่างงาน */
+.view-work-btn {
+    background: white;
+    color: #182e5b;
+    border: 2px solid #dee2ebd7;
+}
+
+.view-work-btn:hover {
+    background: #f5f6f8;
+}
+
+/* บันทึก */
+.save-edit-btn {
+    background: #fc6027;
+    color: white;
+    border: none;
+}
+
+.save-edit-btn:hover {
+    background: #ff7645;
+}
+
+/* ที่อยู่บริษัทแบบล็อก เหมือนหน้า Create */
+.company-address-display {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 45px;
+    padding: 13px 15px;
+    border: 1px solid #d9dee8;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #182e5b;
+    font-size: 15px;
+    line-height: 1.6;
+    cursor: default;
+}
+
+.company-address-display svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: #048BAD;
+}
+
+.field-hint {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ================================
+   COMPANY EDIT JOB - POPUP
+================================ */
+
+.cej-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    background: rgba(24, 46, 91, 0.35);
+    backdrop-filter: blur(2px);
+}
+
+.cej-popup {
+    position: relative;
+
+    width: 380px;
+    max-width: 100%;
+    padding: 40px 28px;
+
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+
+    text-align: center;
+    box-sizing: border-box;
+
+    animation: cejPopupShow 0.2s ease;
+}
+
+.cej-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #8a8f98;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cej-popup-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cej-popup-close:hover {
+    background: #f3f4f6;
+    color: #182e5b;
+}
+
+.cej-popup-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cej-popup-icon svg {
+    width: 68px;
+    height: 68px;
+}
+
+/* Success */
+.cej-popup.success .cej-popup-icon {
+    color: #4dba92;
+}
+
+.cej-popup.success h3 {
+    color: #0e4e52;
+}
+
+.cej-popup.success p {
+    color: #667085;
+}
+
+/* Error */
+.cej-popup.error .cej-popup-icon {
+    color: #e04b4b;
+}
+
+.cej-popup.error h3 {
+    color: #d43d3d;
+}
+
+.cej-popup.error p {
+    color: #7a4a4a;
+}
+
+.cej-popup h3 {
+    margin: 0 0 8px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.cej-popup p {
+    margin: 0 0 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.cej-popup-btn {
+    width: 80%;
+    height: 42px;
+    margin-bottom: -10px;
+
+    border: none;
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Success button */
+.cej-popup.success .cej-popup-btn {
+    background: #4dba92;
+}
+
+.cej-popup.success .cej-popup-btn:hover {
+    background: #3fa982;
+}
+
+/* Error button */
+.cej-popup.error .cej-popup-btn {
+    background: #e04b4b;
+}
+
+.cej-popup.error .cej-popup-btn:hover {
+    background: #d43d3d;
+}
+
+@keyframes cejPopupShow {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
