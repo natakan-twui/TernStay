@@ -118,6 +118,7 @@
     background-color: #fff;
     appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
     outline: none;
     box-sizing: border-box;
 }
@@ -128,12 +129,12 @@
 
 
 
-.select-wrapper {
+.select-wrapper-dorm {
     position: relative;
     width: 250px;
 }
 
-.select-wrapper .select-arrow {
+.select-wrapper-dorm .select-arrow-dorm {
     position: absolute;
     right: 12px;
     top: 50%;
@@ -144,24 +145,24 @@
 }
 
 /* ตอนกดเลือก */
-.select-wrapper select:focus {
+.select-wrapper-dorm select:focus {
     border-color: #f76f3a;
 }
 
 /* สีของ option */
-.select-wrapper select option {
+.select-wrapper-dorm select option {
     background: white;
     color: #182e5b;
     padding: 10px;
 }
 
 /* option ที่เลือก */
-.select-wrapper select option:checked {
+.select-wrapper-dorm select option:checked {
     background: #f76f3a;
     color: white;
 }
 
-.dorm-select {
+/* .dorm-select {
     width: 100%;
     padding: 12px 12px 12px 40px;
     border-radius: 8px;
@@ -169,7 +170,7 @@
     font-size: 15px;
     cursor: pointer;
     appearance: auto;
-}
+} */
 
 
 .dorm-image-wrapper {
@@ -190,7 +191,7 @@
     z-index: 2;
 }
 
-.select-icon {
+.select-icon-dorm {
     position: absolute;
     left: 16px;
     top: 50%;

@@ -432,49 +432,49 @@ function NearbyDorms() {
 
                     {/* ราคา */}
 
-                    
-<div className="select-wrapper">
 
-    <HiOutlineTag className="select-icon" />
+                    <div className="select-wrapper-dorm">
 
-    <select
-        value={priceFilter}
-        onChange={(e) => setPriceFilter(e.target.value)}
-        className="dorm-select"
-    >
-        <option value="all">ราคาทั้งหมด</option>
-        <option value="under3000">ต่ำกว่า 3,000 บาท</option>
-        <option value="3000to5000">3,000 - 5,000 บาท</option>
-        <option value="over5000">มากกว่า 5,000 บาท</option>
-    </select>
+                        <HiOutlineTag className="select-icon-dorm" />
 
-    <FiChevronDown className="select-arrow" />
+                        <select
+                            value={priceFilter}
+                            onChange={(e) => setPriceFilter(e.target.value)}
+                            className="dorm-select"
+                        >
+                            <option value="all">ราคาทั้งหมด</option>
+                            <option value="under3000">ต่ำกว่า 3,000 บาท</option>
+                            <option value="3000to5000">3,000 - 5,000 บาท</option>
+                            <option value="over5000">มากกว่า 5,000 บาท</option>
+                        </select>
 
-</div>
+                        <FiChevronDown className="select-arrow-dorm" />
+
+                    </div>
 
 
 
                     {/* เรียง */}
 
-                    
-<div className="select-wrapper">
 
-    <HiOutlineMapPin className="select-icon" />
+                    <div className="select-wrapper-dorm">
 
-    <select
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
-        className="dorm-select"
-    >
-        <option value="distance">ระยะทางใกล้ที่สุด</option>
-        <option value="priceLow">ราคาต่ำสุดไปมากสุด</option>
-        <option value="priceHigh">ราคาสูงสุดไปต่ำสุด</option>
-        <option value="rating">คะแนนรีวิว</option>
-    </select>
+                        <HiOutlineMapPin className="select-icon-dorm" />
 
-    <FiChevronDown className="select-arrow" />
+                        <select
+                            value={sortBy}
+                            onChange={(e) => setSortBy(e.target.value)}
+                            className="dorm-select"
+                        >
+                            <option value="distance">ระยะทางใกล้ที่สุด</option>
+                            <option value="priceLow">ราคาต่ำสุดไปมากสุด</option>
+                            <option value="priceHigh">ราคาสูงสุดไปต่ำสุด</option>
+                            <option value="rating">คะแนนรีวิว</option>
+                        </select>
 
-</div>
+                        <FiChevronDown className="select-arrow-dorm" />
+
+                    </div>
 
 
                 </div>
