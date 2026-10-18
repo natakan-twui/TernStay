@@ -6,6 +6,20 @@ import axios from "axios"
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosCloseCircle } from "react-icons/io";
+
+
+import {
+    MapContainer,
+    TileLayer,
+    Marker,
+    useMap,
+} from "react-leaflet";
+
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import {
     FiUpload,
     FiEye,
@@ -16,18 +30,54 @@ import {
     FiUser,
     FiBriefcase,
     FiUsers,
-    FiSave
+    FiSave,
+    FiChevronDown
 } from "react-icons/fi";
 
 import { TbUserEdit } from "react-icons/tb";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+const defaultIcon = L.icon({
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+});
 
+L.Marker.prototype.options.icon = defaultIcon;
+
+function LocationPicker({ latitude, longitude }) {
+    if (latitude === null || longitude === null) {
+        return null;
+    }
+
+    return (
+        <Marker
+            position={[latitude, longitude]}
+            draggable={false}
+        />
+    );
+}
+
+function MapController({ latitude, longitude }) {
+    const map = useMap();
+
+    useEffect(() => {
+        if (latitude !== null && longitude !== null) {
+            map.setView([latitude, longitude], 16);
+        }
+    }, [latitude, longitude, map]);
+
+    return null;
+}
 function CompanyEditJob() {
 
     const navigate = useNavigate();
     const { id } = useParams();
     const previewRef = useRef(null);
+    const [latitude, setLatitude] = useState(null);
+    const [longitude, setLongitude] = useState(null);
 
+    const [companyLogo, setCompanyLogo] = useState("");
     const [showPopup, setShowPopup] = useState(false);
     const [popupType, setPopupType] = useState("success");
     const [popupMessage, setPopupMessage] = useState("");
@@ -53,6 +103,7 @@ function CompanyEditJob() {
 
     const [description, setDescription] = useState("");
     const [qualification, setQualification] = useState("");
+    const [skills, setSkills] = useState("");
     const [welfare, setWelfare] = useState("");
 
     const [contactName, setContactName] = useState("");
@@ -66,11 +117,28 @@ function CompanyEditJob() {
 
     const [logoFile, setLogoFile] = useState(null);
 
+    // Error ของแต่ละช่องในหน้า Edit
+    const [errors, setErrors] = useState({});
+
+    // อ้างอิงตำแหน่งของช่องกรอก
+    const fieldRefs = {
+        title: useRef(null),
+        category: useRef(null),
+        workType: useRef(null),
+        location: useRef(null),
+        salaryType: useRef(null),
+        salary: useRef(null),
+        description: useRef(null),
+        qualification: useRef(null),
+        skills: useRef(null),
+        welfare: useRef(null),
+    };
+
     const openPopup = (type, message) => {
-    setPopupType(type);
-    setPopupMessage(message);
-    setShowPopup(true);
-};
+        setPopupType(type);
+        setPopupMessage(message);
+        setShowPopup(true);
+    };
     // ========================================
     // ดึง Token
     // ========================================
@@ -78,129 +146,276 @@ function CompanyEditJob() {
     const getToken = () => {
         return localStorage.getItem("companyToken");
     };
+    const fetchCompanyProfile = async () => {
+        try {
+            const token = getToken();
 
+            if (!token) return;
+
+            const res = await axios.get(
+                "http://localhost:5000/api/company/profile",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            const data = res.data;
+
+            setCompanyName(
+                data.companyName || ""
+            );
+
+            setCompanyAddress(
+                data.address || ""
+            );
+
+            setCompanyLogo(
+                data.logo
+                    ? data.logo.startsWith("http")
+                        ? data.logo
+                        : `http://localhost:5000${data.logo}`
+                    : "/image/logo.png"
+            );
+
+            if (
+                data.latitude !== null &&
+                data.latitude !== undefined &&
+                data.longitude !== null &&
+                data.longitude !== undefined
+            ) {
+                setLatitude(Number(data.latitude));
+                setLongitude(Number(data.longitude));
+            }
+        } catch (error) {
+            console.error(
+                "GET COMPANY PROFILE ERROR:",
+                error
+            );
+        }
+    };
+    const thaiProvinces = [
+        "กรุงเทพมหานคร",
+        "กระบี่",
+        "กาญจนบุรี",
+        "กาฬสินธุ์",
+        "กำแพงเพชร",
+        "ขอนแก่น",
+        "จันทบุรี",
+        "ฉะเชิงเทรา",
+        "ชลบุรี",
+        "ชัยนาท",
+        "ชัยภูมิ",
+        "ชุมพร",
+        "เชียงราย",
+        "เชียงใหม่",
+        "ตรัง",
+        "ตราด",
+        "ตาก",
+        "นครนายก",
+        "นครปฐม",
+        "นครพนม",
+        "นครราชสีมา",
+        "นครศรีธรรมราช",
+        "นครสวรรค์",
+        "นนทบุรี",
+        "นราธิวาส",
+        "น่าน",
+        "บึงกาฬ",
+        "บุรีรัมย์",
+        "ปทุมธานี",
+        "ประจวบคีรีขันธ์",
+        "ปราจีนบุรี",
+        "ปัตตานี",
+        "พระนครศรีอยุธยา",
+        "พะเยา",
+        "พังงา",
+        "พัทลุง",
+        "พิจิตร",
+        "พิษณุโลก",
+        "เพชรบุรี",
+        "เพชรบูรณ์",
+        "แพร่",
+        "ภูเก็ต",
+        "มหาสารคาม",
+        "มุกดาหาร",
+        "แม่ฮ่องสอน",
+        "ยโสธร",
+        "ยะลา",
+        "ร้อยเอ็ด",
+        "ระนอง",
+        "ระยอง",
+        "ราชบุรี",
+        "ลพบุรี",
+        "ลำปาง",
+        "ลำพูน",
+        "เลย",
+        "ศรีสะเกษ",
+        "สกลนคร",
+        "สงขลา",
+        "สตูล",
+        "สมุทรปราการ",
+        "สมุทรสงคราม",
+        "สมุทรสาคร",
+        "สระแก้ว",
+        "สระบุรี",
+        "สิงห์บุรี",
+        "สุโขทัย",
+        "สุพรรณบุรี",
+        "สุราษฎร์ธานี",
+        "สุรินทร์",
+        "หนองคาย",
+        "หนองบัวลำภู",
+        "อ่างทอง",
+        "อุดรธานี",
+        "อุทัยธานี",
+        "อุตรดิตถ์",
+        "อุบลราชธานี",
+        "อำนาจเจริญ"
+    ];
+
+    const getProvinceName = (address) => {
+        if (!address) return "ไม่ระบุจังหวัด";
+
+        const normalizedAddress = address
+            .replace(/กรุงเทพฯ|กทม\./g, "กรุงเทพมหานคร");
+
+        const province = thaiProvinces
+            .slice()
+            .sort((a, b) => b.length - a.length)
+            .find((name) => normalizedAddress.includes(name));
+
+        return province || "ไม่ระบุจังหวัด";
+    };
     // ========================================
     // ดึงข้อมูล Job
     // ========================================
 
-    
-const fetchJob = async () => {
-    try {
-        const token = getToken();
 
-        if (!token) {
-            openPopup("error", "กรุณาเข้าสู่ระบบบริษัทก่อน");
-            return;
-        }
+    const fetchJob = async () => {
+        try {
+            const token = getToken();
 
-        if (!id) {
-            openPopup("error", "ไม่พบรหัสประกาศงาน");
-            return;
-        }
-
-        console.log("FETCH EDIT JOB:", id);
-
-        const res = await fetch(
-            `http://localhost:5000/api/company/jobs/${id}`,
-            {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+            if (!token) {
+                openPopup("error", "กรุณาเข้าสู่ระบบบริษัทก่อน");
+                return;
             }
-        );
 
-        const data = await res.json();
+            if (!id) {
+                openPopup("error", "ไม่พบรหัสประกาศงาน");
+                return;
+            }
 
-        console.log("EDIT JOB RESPONSE:", data);
+            console.log("FETCH EDIT JOB:", id);
 
-        // Token หมดอายุหรือไม่มีสิทธิ์
-        if (res.status === 401 || res.status === 403) {
-            localStorage.removeItem("companyToken");
-            localStorage.removeItem("company");
+            const res = await fetch(
+                `http://localhost:5000/api/company/jobs/${id}`,
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            const data = await res.json();
+
+            console.log("EDIT JOB RESPONSE:", data);
+
+            // Token หมดอายุหรือไม่มีสิทธิ์
+            if (res.status === 401 || res.status === 403) {
+                localStorage.removeItem("companyToken");
+                localStorage.removeItem("company");
+
+                openPopup(
+                    "error",
+                    data.message || "กรุณาเข้าสู่ระบบบริษัทใหม่"
+                );
+                return;
+            }
+
+            // ไม่พบประกาศงาน
+            if (res.status === 404) {
+                openPopup(
+                    "error",
+                    data.message || "ไม่พบประกาศงานนี้"
+                );
+                return;
+            }
+
+            // โหลดข้อมูลไม่สำเร็จ
+            if (!res.ok) {
+                console.error("FETCH JOB ERROR:", data);
+
+                openPopup(
+                    "error",
+                    data.message || "ไม่สามารถโหลดข้อมูลประกาศงานได้"
+                );
+                return;
+            }
+
+            // ใส่ข้อมูลประกาศงานเดิมลงฟอร์ม
+            setTitle(data.title || "");
+            setCategory(data.category || "");
+
+            setCompanyName(
+                data.company?.companyName ||
+                data.companyName ||
+                ""
+            );
+
+            setLocation(data.location || "");
+
+            setWorkType(data.workType || "On-site");
+
+            setSalaryType(data.salaryType || "paid");
+
+            setSalary(data.salary ?? "");
+
+            setSalaryUnit(data.salaryUnit || "บาท/วัน");
+
+            setDescription(data.description || "");
+
+            setQualification(data.qualification || "");
+
+            setSkills(
+                Array.isArray(data.skills)
+                    ? data.skills.join(", ")
+                    : data.skills || ""
+            );
+
+            setWelfare(data.welfare || "");
+
+            setContactName(data.contactName || "");
+
+            setContactEmail(data.contactEmail || "");
+
+            setContactPhone(data.contactPhone || "");
+
+            setJobCreatedAt(data.createdAt || null);
+
+            setJobUpdatedAt(data.updatedAt || null);
+
+            setApplicantCount(
+                data.statistics?.total ??
+                data._count?.applications ??
+                0
+            );
+
+            // โหลดข้อมูลสำเร็จ ไม่ต้องแสดง Popup สำเร็จ
+        } catch (error) {
+            console.error("FETCH EDIT JOB ERROR:", error);
 
             openPopup(
                 "error",
-                data.message || "กรุณาเข้าสู่ระบบบริษัทใหม่"
+                "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาตรวจสอบว่า Backend ทำงานอยู่"
             );
-            return;
+        } finally {
+            // สำคัญ: ต้องปิดสถานะ Loading
+            setLoading(false);
         }
-
-        // ไม่พบประกาศงาน
-        if (res.status === 404) {
-            openPopup(
-                "error",
-                data.message || "ไม่พบประกาศงานนี้"
-            );
-            return;
-        }
-
-        // โหลดข้อมูลไม่สำเร็จ
-        if (!res.ok) {
-            console.error("FETCH JOB ERROR:", data);
-
-            openPopup(
-                "error",
-                data.message || "ไม่สามารถโหลดข้อมูลประกาศงานได้"
-            );
-            return;
-        }
-
-        // ใส่ข้อมูลประกาศงานเดิมลงฟอร์ม
-        setTitle(data.title || "");
-        setCategory(data.category || "");
-
-        setCompanyName(
-            data.company?.companyName ||
-            data.companyName ||
-            ""
-        );
-
-        setLocation(data.location || "");
-
-        setWorkType(data.workType || "On-site");
-
-        setSalaryType(data.salaryType || "paid");
-
-        setSalary(data.salary ?? "");
-
-        setSalaryUnit(data.salaryUnit || "บาท/วัน");
-
-        setDescription(data.description || "");
-
-        setQualification(data.qualification || "");
-
-        setWelfare(data.welfare || "");
-
-        setContactName(data.contactName || "");
-
-        setContactEmail(data.contactEmail || "");
-
-        setContactPhone(data.contactPhone || "");
-
-        setJobCreatedAt(data.createdAt || null);
-
-        setJobUpdatedAt(data.updatedAt || null);
-
-        setApplicantCount(
-            data.statistics?.total ??
-            data._count?.applications ??
-            0
-        );
-
-        // โหลดข้อมูลสำเร็จ ไม่ต้องแสดง Popup สำเร็จ
-    } catch (error) {
-        console.error("FETCH EDIT JOB ERROR:", error);
-
-        openPopup(
-            "error",
-            "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาตรวจสอบว่า Backend ทำงานอยู่"
-        );
-    } finally {
-        // สำคัญ: ต้องปิดสถานะ Loading
-        setLoading(false);
-    }
-};
+    };
 
 
     // ========================================
@@ -208,12 +423,189 @@ const fetchJob = async () => {
     // ========================================
 
     useEffect(() => {
-
         fetchJob();
-
-
+        fetchCompanyProfile();
     }, [id]);
 
+
+    // ตรวจสอบข้อมูลทีละช่อง
+    const validateField = (field, value) => {
+        let message = "";
+
+        switch (field) {
+            case "title":
+                if (!String(value ?? "").trim()) {
+                    message = "กรุณากรอกชื่อตำแหน่งงาน";
+                }
+                break;
+
+            case "category":
+                if (!value) {
+                    message = "กรุณาเลือกหมวดหมู่งาน";
+                }
+                break;
+
+            case "workType":
+                if (!value) {
+                    message = "กรุณาเลือกรูปแบบการทำงาน";
+                }
+                break;
+
+            case "location":
+                if (!value.trim()) {
+                    message = "กรุณากรอกสถานที่ทำงาน";
+                }
+                break;
+
+            case "salaryType":
+                if (!value) {
+                    message = "กรุณาเลือกค่าตอบแทน";
+                }
+                break;
+
+            case "salary":
+                if (salaryType === "paid") {
+                    if (value === "" || String(value).trim() === "") {
+                        message = "กรุณากรอกจำนวนเงิน";
+                    } else if (!Number.isFinite(Number(value)) || Number(value) <= 0) {
+                        message = "จำนวนเงินต้องมากกว่า 0";
+                    }
+                }
+                break;
+
+            case "description":
+                if (!value.trim()) {
+                    message = "กรุณากรอกรายละเอียดงาน";
+                }
+                break;
+
+            case "qualification":
+                if (!value.trim()) {
+                    message = "กรุณากรอกคุณสมบัติผู้สมัคร";
+                }
+                break;
+
+            case "skills":
+                if (!value.trim()) {
+                    message = "กรุณากรอกทักษะที่ต้องการ";
+                }
+                break;
+
+            case "welfare":
+                if (!value.trim()) {
+                    message = "กรุณากรอกสวัสดิการ";
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        setErrors((prev) => ({
+            ...prev,
+            [field]: message,
+        }));
+
+        return !message;
+    };
+
+    // ตรวจสอบทุกช่องก่อนบันทึก
+    const validateForm = () => {
+        const values = {
+            title,
+            category,
+            workType,
+            location,
+            salaryType,
+            salary,
+            description,
+            qualification,
+            skills,
+            welfare,
+        };
+
+        const newErrors = {};
+
+        Object.entries(values).forEach(([field, value]) => {
+            let message = "";
+
+            switch (field) {
+                case "title":
+                    if (!value.trim()) message = "กรุณากรอกชื่อตำแหน่งงาน";
+                    break;
+
+                case "category":
+                    if (!value) message = "กรุณาเลือกหมวดหมู่งาน";
+                    break;
+
+                case "workType":
+                    if (!value) message = "กรุณาเลือกรูปแบบการทำงาน";
+                    break;
+
+                case "location":
+                    if (!value.trim()) message = "กรุณากรอกสถานที่ทำงาน";
+                    break;
+
+                case "salaryType":
+                    if (!value) message = "กรุณาเลือกค่าตอบแทน";
+                    break;
+
+                case "salary":
+                    if (salaryType === "paid") {
+                        if (value === "" || String(value).trim() === "") {
+                            message = "กรุณากรอกจำนวนเงิน";
+                        } else if (
+                            !Number.isFinite(Number(value)) ||
+                            Number(value) <= 0
+                        ) {
+                            message = "จำนวนเงินต้องมากกว่า 0";
+                        }
+                    }
+                    break;
+
+                case "description":
+                    if (!value.trim()) message = "กรุณากรอกรายละเอียดงาน";
+                    break;
+
+                case "qualification":
+                    if (!value.trim()) message = "กรุณากรอกคุณสมบัติผู้สมัคร";
+                    break;
+
+                case "skills":
+                    if (!value.trim()) message = "กรุณากรอกทักษะที่ต้องการ";
+                    break;
+
+                case "welfare":
+                    if (!value.trim()) message = "กรุณากรอกสวัสดิการ";
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (message) {
+                newErrors[field] = message;
+            }
+        });
+
+        setErrors(newErrors);
+
+        // เลื่อนไปยังช่องแรกที่พบข้อผิดพลาด
+        const firstError = Object.keys(newErrors)[0];
+
+        if (firstError) {
+            fieldRefs[firstError].current?.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+
+            fieldRefs[firstError].current?.focus?.();
+
+            return false;
+        }
+
+        return true;
+    };
     // ========================================
     // บันทึกการแก้ไข
     // ========================================
@@ -237,81 +629,12 @@ const fetchJob = async () => {
             // ตรวจสอบข้อมูลจำเป็น
             // ========================================
 
-            if (!title.trim()) {
-
-                alert("กรุณากรอกชื่อตำแหน่งงาน");
-
+            // ตรวจสอบข้อมูลก่อนส่งไป Backend
+            if (!validateForm()) {
                 return;
             }
 
-            if (!category) {
 
-                alert("กรุณาเลือกหมวดหมู่งาน");
-
-                return;
-            }
-
-            if (!location.trim()) {
-
-                alert("กรุณากรอกสถานที่ทำงาน");
-
-                return;
-            }
-
-            if (!salaryType) {
-
-                alert("กรุณาเลือกค่าตอบแทน");
-
-                return;
-            }
-
-            if (
-                salaryType === "paid" &&
-                (
-                    salary === "" ||
-                    Number(salary) < 0
-                )
-            ) {
-
-                alert("กรุณาระบุค่าตอบแทน");
-
-                return;
-            }
-
-            if (!description.trim()) {
-
-                alert("กรุณากรอกรายละเอียดงาน");
-
-                return;
-            }
-
-            if (!qualification.trim()) {
-
-                alert("กรุณากรอกคุณสมบัติผู้สมัคร");
-
-                return;
-            }
-
-            if (!contactName.trim()) {
-
-                alert("กรุณากรอกชื่อผู้ติดต่อ");
-
-                return;
-            }
-
-            if (!contactEmail.trim()) {
-
-                alert("กรุณากรอกอีเมล");
-
-                return;
-            }
-
-            if (!contactPhone.trim()) {
-
-                alert("กรุณากรอกเบอร์โทรศัพท์");
-
-                return;
-            }
 
             setSaving(true);
 
@@ -337,6 +660,7 @@ const fetchJob = async () => {
 
             formData.append("description", description);
             formData.append("qualification", qualification);
+            formData.append("skills", skills);
             formData.append("welfare", welfare);
 
             formData.append("contactName", contactName);
@@ -368,32 +692,32 @@ const fetchJob = async () => {
 
             const data = await res.json();
 
-console.log("UPDATE JOB RESPONSE:", data);
+            console.log("UPDATE JOB RESPONSE:", data);
 
-if (res.status === 401 || res.status === 403) {
-    localStorage.removeItem("companyToken");
-    localStorage.removeItem("company");
+            if (res.status === 401 || res.status === 403) {
+                localStorage.removeItem("companyToken");
+                localStorage.removeItem("company");
 
-    openPopup(
-        "error",
-        data.message || "กรุณาเข้าสู่ระบบบริษัทใหม่"
-    );
-    return;
-}
+                openPopup(
+                    "error",
+                    data.message || "กรุณาเข้าสู่ระบบบริษัทใหม่"
+                );
+                return;
+            }
 
-if (!res.ok) {
-    openPopup(
-        "error",
-        data.message || "ไม่สามารถบันทึกการแก้ไขได้"
-    );
-    return;
-}
+            if (!res.ok) {
+                openPopup(
+                    "error",
+                    data.message || "ไม่สามารถบันทึกการแก้ไขได้"
+                );
+                return;
+            }
 
-// บันทึกสำเร็จแล้ว จึงค่อยแสดง Popup
-openPopup(
-    "success",
-    data.message || "บันทึกการแก้ไขประกาศงานเรียบร้อยแล้ว"
-);
+            // บันทึกสำเร็จแล้ว จึงค่อยแสดง Popup
+            openPopup(
+                "success",
+                data.message || "บันทึกการแก้ไขประกาศงานเรียบร้อยแล้ว"
+            );
 
         } catch (error) {
 
@@ -434,7 +758,35 @@ openPopup(
         );
 
     };
+    // เลือกรูปแบบการทำงาน หรือคลิกซ้ำเพื่อยกเลิก
+    const handleWorkTypeClick = (value) => {
+        setWorkType((prev) => (prev === value ? "" : value));
 
+        setErrors((prev) => ({
+            ...prev,
+            workType: "",
+        }));
+    };
+
+    // เลือกค่าตอบแทน หรือคลิกซ้ำเพื่อยกเลิก
+    const handleSalaryTypeClick = (value) => {
+        if (salaryType === value) {
+            setSalaryType("");
+            setSalary("");
+        } else {
+            setSalaryType(value);
+
+            if (value === "unpaid") {
+                setSalary("");
+            }
+        }
+
+        setErrors((prev) => ({
+            ...prev,
+            salaryType: "",
+            salary: "",
+        }));
+    };
     // ========================================
     // Loading
     // ========================================
@@ -461,6 +813,8 @@ openPopup(
         );
 
     }
+
+
 
     return (
         <>
@@ -506,7 +860,7 @@ openPopup(
 
                     <section className="editjob-form">
 
-
+                        <h2>แก้ไขประกาศงาน</h2>
                         {/* ข้อมูลตำแหน่งงาน */}
 
                         <section className="editjob-form-card">
@@ -529,13 +883,25 @@ openPopup(
                                     </label>
 
                                     <input
+                                        ref={fieldRefs.title}
                                         type="text"
                                         placeholder="เช่น Frontend Developer Intern"
                                         value={title}
-                                        onChange={(e) =>
-                                            setTitle(e.target.value)
-                                        }
+                                        className={errors.title ? "edit-input-error" : ""}
+                                        onBlur={() => validateField("title", title)}
+                                        onChange={(e) => {
+                                            const value = e.target.value;
+                                            setTitle(value);
+
+                                            if (value.trim()) {
+                                                setErrors((prev) => ({ ...prev, title: "" }));
+                                            }
+                                        }}
                                     />
+
+                                    {errors.title && (
+                                        <small className="edit-error-text">{errors.title}</small>
+                                    )}
 
                                 </div>
 
@@ -546,25 +912,86 @@ openPopup(
                                         หมวดหมู่งาน <span>*</span>
                                     </label>
 
-                                    <select
-                                        value={category}
-                                        onChange={(e) =>
-                                            setCategory(e.target.value)
-                                        }
-                                    >
+                                    <div className="edit-category-select-wrapper">
+    <select
+        ref={fieldRefs.category}
+        value={category}
+        className={`edit-category-select ${
+            errors.category ? "edit-input-error" : ""
+        }`}
+        onBlur={() => validateField("category", category)}
+        onChange={(e) => {
+            const value = e.target.value;
+            setCategory(value);
 
-                                        <option value="">เลือกหมวดหมู่</option>
-                                        <option value="IT">IT / Developer</option>
-                                        <option value="Design">Design</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Business">Business</option>
+            if (value) {
+                setErrors((prev) => ({ ...prev, category: "" }));
+            }
+        }}
+    >
+        <option value="">เลือกหมวดหมู่</option>
+        <option value="IT">IT / Developer</option>
+        <option value="Design">Design</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Business">Business</option>
+    </select>
 
-                                    </select>
+    <FiChevronDown className="edit-category-arrow" />
+</div>
+
+                                    {errors.category && (
+                                        <small className="edit-error-text">{errors.category}</small>
+                                    )}
 
                                 </div>
 
                             </div>
 
+                            <div className="form-group-edit">
+                                <label>
+                                    รูปแบบการทำงาน <span>*</span>
+                                </label>
+
+                                <div
+                                    className={`work-type-options ${errors.workType ? "edit-options-error" : ""
+                                        }`}
+                                    ref={fieldRefs.workType}
+                                    tabIndex={-1}
+                                    onBlur={(e) => {
+                                        if (!e.currentTarget.contains(e.relatedTarget)) {
+                                            validateField("workType", workType);
+                                        }
+                                    }}
+                                >
+                                    <button
+                                        type="button"
+                                        className={`work-type-btn ${workType === "On-site" ? "active" : ""}`}
+                                        onClick={() => handleWorkTypeClick("On-site")}
+                                    >
+                                        On-site
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className={`work-type-btn ${workType === "Hybrid" ? "active" : ""}`}
+                                        onClick={() => handleWorkTypeClick("Hybrid")}
+                                    >
+                                        Hybrid
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className={`work-type-btn ${workType === "Work from Home" ? "active" : ""}`}
+                                        onClick={() => handleWorkTypeClick("Work from Home")}
+                                    >
+                                        Work from Home
+                                    </button>
+                                </div>
+
+                                {errors.workType && (
+                                    <small className="edit-error-text">{errors.workType}</small>
+                                )}
+                            </div>
 
                             <div className="form-group-edit">
 
@@ -583,56 +1010,48 @@ openPopup(
                                     </span>
                                 </div>
 
+                                <div className="form-group-edit map-form-group">
+                                    <label>ตำแหน่งบนแผนที่</label>
 
+                                    <div className="editjob-map-wrapper">
+                                        {latitude !== null && longitude !== null ? (
+                                            <MapContainer
+                                                center={[latitude, longitude]}
+                                                zoom={16}
+                                                scrollWheelZoom={true}
+                                                style={{
+                                                    height: "350px",
+                                                    width: "100%",
+                                                }}
+                                            >
+                                                <TileLayer
+                                                    attribution="&copy; OpenStreetMap contributors"
+                                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                />
 
-                                <label>
-                                    รูปแบบการทำงาน <span>*</span>
-                                </label>
+                                                <MapController
+                                                    latitude={latitude}
+                                                    longitude={longitude}
+                                                />
 
-                                <div className="work-type-options">
+                                                <LocationPicker
+                                                    latitude={latitude}
+                                                    longitude={longitude}
+                                                />
+                                            </MapContainer>
+                                        ) : (
+                                            <div className="editjob-map-empty">
+                                                ยังไม่มีข้อมูลพิกัดของบริษัท
+                                            </div>
+                                        )}
+                                    </div>
 
-                                    <button
-                                        type="button"
-                                        className={`work-type-btn ${workType === "On-site"
-                                            ? "active"
-                                            : ""
-                                            }`}
-                                        onClick={() =>
-                                            setWorkType("On-site")
-                                        }
-                                    >
-                                        On-site
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        className={`work-type-btn ${workType === "Hybrid"
-                                            ? "active"
-                                            : ""
-                                            }`}
-                                        onClick={() =>
-                                            setWorkType("Hybrid")
-                                        }
-                                    >
-                                        Hybrid
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        className={`work-type-btn ${workType === "Work From Home"
-                                            ? "active"
-                                            : ""
-                                            }`}
-                                        onClick={() =>
-                                            setWorkType(
-                                                "Work From Home"
-                                            )
-                                        }
-                                    >
-                                        Work From Home
-                                    </button>
-
+                                    <small className="field-hint">
+                                        ตำแหน่งบนแผนที่อ้างอิงจากที่อยู่บริษัทในโปรไฟล์
+                                        และไม่สามารถแก้ไขได้
+                                    </small>
                                 </div>
+
 
 
 
@@ -730,82 +1149,93 @@ openPopup(
                             </label>
 
 
-                            <div className="salary-options">
-
+                            <div
+                                className={`salary-options ${errors.salaryType ? "edit-options-error" : ""
+                                    }`}
+                                ref={fieldRefs.salaryType}
+                                tabIndex={-1}
+                                onBlur={(e) => {
+                                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                                        validateField("salaryType", salaryType);
+                                    }
+                                }}
+                            >
                                 <button
                                     type="button"
-                                    className={`salary-btn ${salaryType === "paid"
-                                        ? "active"
-                                        : ""
-                                        }`}
-                                    onClick={() =>
-                                        setSalaryType("paid")
-                                    }
+                                    className={`salary-btn ${salaryType === "paid" ? "active" : ""}`}
+                                    onClick={() => handleSalaryTypeClick("paid")}
                                 >
                                     มีค่าตอบแทน
                                 </button>
 
-
                                 <button
                                     type="button"
-                                    className={`salary-btn ${salaryType === "unpaid"
-                                        ? "active"
-                                        : ""
-                                        }`}
-                                    onClick={() => {
-
-                                        setSalaryType(
-                                            "unpaid"
-                                        );
-
-                                        setSalary("");
-
-                                    }}
+                                    className={`salary-btn ${salaryType === "unpaid" ? "active" : ""}`}
+                                    onClick={() => handleSalaryTypeClick("unpaid")}
                                 >
                                     ไม่มีค่าตอบแทน
                                 </button>
-
                             </div>
+
+                            {errors.salaryType && (
+                                <small className="edit-error-text">{errors.salaryType}</small>
+                            )}
+
+
 
 
                             {salaryType === "paid" && (
+                                <>
+                                    <div className="salary-input-row">
+                                        <input
+                                            ref={fieldRefs.salary}
+                                            className={`salary-input-box ${errors.salary ? "edit-input-error" : ""
+                                                }`}
+                                            type="number"
+                                            min="1"
+                                            step="1"
+                                            placeholder="เช่น 350"
+                                            value={salary}
+                                            onBlur={() => validateField("salary", salary)}
+                                            onChange={(e) => {
+                                                const value = e.target.value;
+                                                setSalary(value);
 
-                                <div className="salary-input-row">
+                                                if (
+                                                    value.trim() !== "" &&
+                                                    Number.isFinite(Number(value)) &&
+                                                    Number(value) > 0
+                                                ) {
+                                                    setErrors((prev) => ({
+                                                        ...prev,
+                                                        salary: "",
+                                                    }));
+                                                }
+                                            }}
+                                        />
 
-                                    <input
-                                        className="salary-input-box"
-                                        type="number"
-                                        min="1"
-                                        step="1"
-                                        placeholder="เช่น 5000"
-                                        value={salary}
-                                        onChange={(e) =>
-                                            setSalary(e.target.value)
-                                        }
-                                    />
+                                        <div className="salary-unit-wrapper">
+    <select
+        className="salary-unit-select"
+        value={salaryUnit}
+        onChange={(e) => setSalaryUnit(e.target.value)}
+    >
+        <option value="บาท/วัน">บาท/วัน</option>
+        <option value="บาท/เดือน">บาท/เดือน</option>
+        <option value="บาท/ชั่วโมง">บาท/ชั่วโมง</option>
+    </select>
 
-                                    <select
-                                        className="salary-unit-select"
-                                        value={salaryUnit}
-                                        onChange={(e) =>
-                                            setSalaryUnit(e.target.value)
-                                        }
-                                    >
-                                        <option value="บาท/วัน">
-                                            บาท/วัน
-                                        </option>
+    <FiChevronDown className="salary-unit-arrow" />
+</div>
+                                    </div>
 
-                                        <option value="บาท/เดือน">
-                                            บาท/เดือน
-                                        </option>
-
-                                        <option value="บาท/ชั่วโมง">
-                                            บาท/ชั่วโมง
-                                        </option>
-                                    </select>
-
-                                </div>
-
+                                    {/* ข้อความแจ้งเตือนอยู่ใต้ช่องเงินเดือน */}
+                                    {errors.salary && (
+                                        <small className="edit-error-text">
+                                            {errors.salary}
+                                        </small>
+                                    )}
+                                </>
                             )}
 
                         </section>
@@ -827,19 +1257,29 @@ openPopup(
                             <div className="form-group-edit">
 
                                 <label>
-                                    หน้าที่ความรับผิดชอบ <span>*</span>
+                                    รายละเอียดงาน <span>*</span>
                                 </label>
 
                                 <textarea
+                                    ref={fieldRefs.description}
                                     rows="5"
                                     placeholder="ระบุรายละเอียดงาน หน้าที่ความรับผิดชอบ..."
                                     value={description}
-                                    onChange={(e) =>
-                                        setDescription(
-                                            e.target.value
-                                        )
-                                    }
+                                    className={errors.description ? "edit-input-error" : ""}
+                                    onBlur={() => validateField("description", description)}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setDescription(value);
+
+                                        if (value.trim()) {
+                                            setErrors((prev) => ({ ...prev, description: "" }));
+                                        }
+                                    }}
                                 />
+
+                                {errors.description && (
+                                    <small className="edit-error-text">{errors.description}</small>
+                                )}
 
                             </div>
 
@@ -851,38 +1291,79 @@ openPopup(
                                 </label>
 
                                 <textarea
+                                    ref={fieldRefs.qualification}
                                     rows="5"
-                                    placeholder="ระบุคุณสมบัติ เช่น ทักษะที่ต้องการ ระดับการศึกษา..."
+                                    placeholder="ระบุคุณสมบัติ เช่น ระดับการศึกษา..."
                                     value={qualification}
-                                    onChange={(e) =>
-                                        setQualification(
-                                            e.target.value
-                                        )
-                                    }
+                                    className={errors.qualification ? "edit-input-error" : ""}
+                                    onBlur={() => validateField("qualification", qualification)}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setQualification(value);
+
+                                        if (value.trim()) {
+                                            setErrors((prev) => ({ ...prev, qualification: "" }));
+                                        }
+                                    }}
                                 />
 
+                                {errors.qualification && (
+                                    <small className="edit-error-text">{errors.qualification}</small>
+                                )}
+
                             </div>
-
-
-                            <div className="form-group-edit">
-
+                            <div className="form-group-edit skills-group">
                                 <label>
-                                    สวัสดิการ
+                                    ทักษะที่ต้องการ <span>*</span>
                                 </label>
 
                                 <textarea
+                                    ref={fieldRefs.skills}
+                                    rows="3"
+                                    placeholder="เช่น HTML, CSS, JavaScript, React, MySQL"
+                                    value={skills}
+                                    className={errors.skills ? "edit-input-error" : ""}
+                                    onBlur={() => validateField("skills", skills)}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setSkills(value);
+
+                                        if (value.trim()) {
+                                            setErrors((prev) => ({ ...prev, skills: "" }));
+                                        }
+                                    }}
+                                />
+
+                                {errors.skills && (
+                                    <small className="edit-error-text">{errors.skills}</small>
+                                )}
+                            </div>
+
+                            <div className="form-group-edit">
+                                <label>
+                                    สวัสดิการ <span>*</span>
+                                </label>
+                                <textarea
+                                    ref={fieldRefs.welfare}
                                     rows="5"
                                     placeholder="ระบุสวัสดิการ เช่น เบี้ยเลี้ยง อาหารกลางวัน ค่าเดินทาง..."
                                     value={welfare}
-                                    onChange={(e) =>
-                                        setWelfare(
-                                            e.target.value
-                                        )
-                                    }
+                                    className={errors.welfare ? "edit-input-error" : ""}
+                                    onBlur={() => validateField("welfare", welfare)}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setWelfare(value);
+
+                                        if (value.trim()) {
+                                            setErrors((prev) => ({ ...prev, welfare: "" }));
+                                        }
+                                    }}
                                 />
 
+                                {errors.welfare && (
+                                    <small className="edit-error-text">{errors.welfare}</small>
+                                )}
                             </div>
-
                         </section>
 
 
@@ -1048,17 +1529,19 @@ openPopup(
                             <div className="preview-card">
 
                                 <span className="company-badge">
-                                    บริษัทของคุณ
+                                    {companyName || "บริษัทของคุณ"}
                                 </span>
 
 
                                 <div className="preview-logo">
-
                                     <img
-                                        src="/image/logo.png"
-                                        alt="บริษัท"
+                                        src={companyLogo || "/image/logo.png"}
+                                        alt={companyName || "โลโก้บริษัท"}
+                                        onError={(e) => {
+                                            e.currentTarget.onerror = null;
+                                            e.currentTarget.src = "/image/logo.png";
+                                        }}
                                     />
-
                                 </div>
 
 
@@ -1075,12 +1558,8 @@ openPopup(
 
 
                                 <p>
-
                                     <FiMapPin className="preview-icon" />
-
-                                    {location ||
-                                        "สถานที่ทำงาน"}
-
+                                    {getProvinceName(companyAddress || location)}
                                 </p>
 
 
@@ -1137,7 +1616,21 @@ openPopup(
 
                                 </ul>
 
+                                <h4>ทักษะที่ต้องการ</h4>
 
+                                <ul>
+                                    {skills.trim() ? (
+                                        skills.split(",").map((skill, index) => (
+                                            skill.trim() && (
+                                                <li key={index}>
+                                                    {skill.trim()}
+                                                </li>
+                                            )
+                                        ))
+                                    ) : (
+                                        <li>ยังไม่ได้ระบุ</li>
+                                    )}
+                                </ul>
                                 <h4>
                                     สวัสดิการ
                                 </h4>

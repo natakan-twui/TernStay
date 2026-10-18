@@ -54,6 +54,10 @@
     cursor: pointer;
 }
 
+.create-btn:hover {
+    background: #f7703af4;
+}
+
 .preview-btn {
     background: white;
     border: 2px solid #eaebf0;
@@ -101,7 +105,7 @@
 }
 
 .preview-title-icon {
-    color: #182e5b;
+    color: #182e5b !important;
     font-size: 17px;
 }
 
@@ -308,12 +312,16 @@ select {
     padding: 14px 26px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: -70px !important;
+    margin-top: -0px !important;
+
 
 }
 
 .published-btn-create svg {
     font-size: 18px;
+    margin-right: 5px;
+    transform: translateX(-3px);
+    /* ขยับไอคอนไปทางซ้าย */
 }
 
 .published-btn-create:hover {
@@ -367,7 +375,7 @@ select {
 
 .worktype-btn {
     padding: 12px 22px;
-    border: 2px solid #e4e7ef;
+    border: 1px solid #d1d4dbd7;
     border-radius: 10px;
     background: #fff;
     color: #182e5b;
@@ -379,12 +387,13 @@ select {
 
 .worktype-btn:hover {
     background: #fc6027;
+    border: 1px solid #fc6027;
     color: white;
 }
 
 .worktype-btn.active {
     background: #fc6027;
-    border: 2px solid #fc6027;
+    border: 1px solid #fc6027;
     color: #fff;
 }
 
@@ -403,7 +412,7 @@ select {
 
 .salary-btn {
     padding: 12px 24px;
-    border: 2px solid #e4e7ef;
+    border: 1px solid #e4e7ef;
     border-radius: 10px;
     background: #fff;
     color: #182e5b !important;
@@ -424,7 +433,7 @@ select {
     color: #fff !important;
 }
 
-.salary-input-row {
+/* .salary-input-row {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -446,7 +455,7 @@ select {
     color: #ef4444;
     font-size: 13px;
     font-weight: 500;
-}
+} */
 
 /* กล่อง preview contact  */
 /* กล่องติดต่อ */
@@ -559,7 +568,7 @@ hr {
 
 .error-text-create {
     display: block;
-    margin-top: -15px;
+    margin-top: -10px;
     color: #ef4444;
     font-size: 13px;
     font-weight: 500;
@@ -810,7 +819,7 @@ hr {
 }
 
 /* เว้นระยะก่อนรูปแบบการทำงาน */
-.form-row-create + .form-group-create {
+.form-row-create+.form-group-create {
     margin-top: 20px;
 }
 
@@ -827,22 +836,22 @@ hr {
     box-sizing: border-box;
 }
 
-.salary-input-row .error-text-create {
+/* .salary-input-row .error-text-create {
     margin-top: -15px;
-}
+} */
 
-.job-detail-section>.form-group-create {
+/* .job-detail-section>.form-group-create {
     position: relative;
     top: -15px;
-}
+} */
 
-.job-detail-section .qualification-group,
+/* .job-detail-section .qualification-group,
 .job-detail-section .skills-group,
 .job-detail-section .welfare-group {
     transform: translateY(-20px);
-}
+} */
 
-.job-detail-section .skills-group {
+/* .job-detail-section .skills-group {
     position: relative !important;
     top: -50px !important;
     transform: none !important;
@@ -852,11 +861,39 @@ hr {
     position: relative !important;
     top: -70px !important;
     transform: none !important;
-}
+} */
 
 /* .form-section:nth-of-type(3) {
     margin-top: -15px;
 } */
+
+/* จัดตำแหน่งช่องรายละเอียดงาน */
+/* จัดช่องรายละเอียดงานตามลำดับปกติ */
+.job-detail-section>.form-group-create,
+.job-detail-section .qualification-group,
+.job-detail-section .skills-group,
+.job-detail-section .welfare-group {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+}
+
+/* เว้นระยะห่างระหว่างช่อง */
+/* ลดระยะห่างระหว่างช่องรายละเอียดงาน */
+.job-detail-section>.form-group-create,
+.job-detail-section .qualification-group,
+.job-detail-section .skills-group,
+.job-detail-section .welfare-group {
+    margin-bottom: 10px;
+}
+
+/* เว้นระยะก่อนปุ่มเผยแพร่ */
+.published-btn-create {
+    display: block;
+    clear: both;
+    margin-top: 24px;
+}
+
 .select-wrapper {
     position: relative;
     width: 100%;
@@ -879,4 +916,114 @@ hr {
     font-size: 18px;
     color: #9197aa;
     pointer-events: none;
+}
+
+/* จัดชื่อตำแหน่งงานและหมวดหมู่งานให้อยู่แถวเดียวกัน */
+.job-title-category-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-top: 10px;
+}
+
+/* ให้กล่อง input และ select มีความสูงเท่ากัน */
+.job-title-category-row input,
+.job-title-category-row .select-wrapper select {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+/* เว้นพื้นที่ให้ลูกศรใน select */
+.job-title-category-row .select-wrapper select {
+    padding: 12px 42px 12px 14px;
+}
+
+/* ปรับสำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 600px) {
+    .job-title-category-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ขยับตั้งแต่รูปแบบการทำงานลงไป */
+.form-group-create:has(.worktype-group) {
+    margin-top: -7px;
+}
+
+/* ให้ข้อความแจ้งเตือนรูปแบบการทำงานอยู่ใต้ปุ่ม */
+.worktype-group .error-text-create {
+    display: block;
+    width: 100%;
+    margin-top: 0px;
+}
+
+/* ช่องกรอกเงินเดือนและหน่วยเงิน */
+.salary-input-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.salary-input-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+.salary-input-wrapper input {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+}
+
+.salary-input-row select {
+    display: block !important;
+    flex: 0 0 180px !important;
+    width: 180px !important;
+    min-width: 180px !important;
+    max-width: 180px !important;
+    height: 45px;
+    padding: 0 32px 0 12px !important;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.salary-input-wrapper .error-text-create {
+    display: block;
+    width: 100%;
+    margin-top: 0px;
+}
+
+/* กล่องเลือกหน่วยเงิน */
+.salary-select-wrapper {
+    position: relative;
+    flex: 0 0 170px;
+    width: 170px;
+    height: 45px;
+}
+
+
+.salary-select-wrapper select {
+    width: 100%;
+    height: 45px;
+    padding: 0 36px 0 12px;
+    appearance: none;
+    box-sizing: border-box;
+}
+
+/* ลูกศร */
+.salary-select-arrow {
+    position: absolute;
+    right: 4px;
+    top: 0;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    font-size: 18px;
+    color: #182e5b;
 }

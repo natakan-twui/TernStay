@@ -420,20 +420,18 @@ function CompanyDashboard() {
                                         <div className="job-info">
 
 
-                                            <p>
-                                                <MdComputer />
-
-                                                สายงาน: {job.category}
-
-                                            </p>
+                                           <p>
+    <MdComputer />
+    หมวดหมู่งาน: {job.category || "ไม่ระบุหมวดหมู่งาน"}
+</p>
 
 
-                                            <p>
+                                            {/* <p>
                                                 <FaClipboardList />
 
                                                 ประเภทงาน: {job.jobType}
 
-                                            </p>
+                                            </p> */}
 
 
                                             <p>

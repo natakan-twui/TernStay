@@ -1053,65 +1053,23 @@ function CompanyApplicants() {
 
 
 
-                                    {/* Resume */}
 
-                                    {/* Resume */}
+                                    {/* Resume / ไฟล์ที่แนบตอนสมัครงาน */}
                                     <div className="applicant-resume">
-
-                                        {/* ไฟล์ประสบการณ์และโปรเจกต์ */}
-
-                                        {/* ผลงานและไฟล์ของผู้สมัคร */}
-                                        <div className="applicant-project-files">
-                                            <h4>ประสบการณ์ / โปรเจกต์</h4>
-
-                                            {applicant.user.projects?.length > 0 ? (
-                                                applicant.user.projects.map((project) => (
-                                                    <div key={project.id} className="applicant-project">
-                                                        <strong>{project.name}</strong>
-
-                                                        {project.description && (
-                                                            <p>{project.description}</p>
-                                                        )}
-
-                                                        {project.files?.map((file) => (
-                                                            <div key={file.id} className="applicant-project-file">
-                                                                <FiFileText />
-                                                                <span>{file.originalName}</span>
-
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() =>
-                                                                        downloadApplicantProjectFile(applicant.id, file)
-                                                                    }
-                                                                >
-                                                                    <FiDownload />
-                                                                    ดาวน์โหลด
-                                                                </button>
-                                                            </div>
-                                                        ))}
-
-                                                        {project.files?.length === 0 && (
-                                                            <p>ไม่มีไฟล์แนบ</p>
-                                                        )}
-                                                    </div>
-                                                ))
-                                            ) : (
-                                                <p>ยังไม่มีโปรเจกต์</p>
-                                            )}
-                                        </div>
-
-
                                         {applicant.resume ? (
                                             <button
+                                                type="button"
                                                 className="resume-file"
                                                 title={getResumeFileName(applicant.resume)}
                                                 onClick={() =>
-                                                    openApplicantResume(applicant.resume, applicant.id)
+                                                    openApplicantResume(
+                                                        applicant.resume,
+                                                        applicant.id
+                                                    )
                                                 }
                                             >
                                                 <div className="resume-file-icon">
                                                     <CiFileOn />
-
                                                 </div>
 
                                                 <div className="resume-file-info">

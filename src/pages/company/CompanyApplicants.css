@@ -153,7 +153,7 @@ VIEW DETAIL
 }
 
 .view-job-detail-btn:hover {
-    color: #048bad;
+    color: #182e5be5;
 }
 
 .clear-filter-btn {
@@ -1023,7 +1023,7 @@ CLEAR FILTER
 }
 
 .applicant-breadcrumb button:hover {
-    color: #fc6027;
+    color: #182e5bbe;
 }
 
 .applicant-breadcrumb>span {

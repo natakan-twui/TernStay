@@ -213,8 +213,8 @@ function CompanyCreateJob() {
             newErrors.jobTitle = "กรุณากรอกชื่อตำแหน่งงาน";
         if (!jobData.category)
             newErrors.category = "กรุณาเลือกหมวดหมู่งาน";
-        if (!jobData.jobType)
-            newErrors.jobType = "กรุณาเลือกประเภทงาน";
+        // if (!jobData.jobType)
+        //     newErrors.jobType = "กรุณาเลือกประเภทงาน";
         if (!jobData.location.trim())
             newErrors.location = "กรุณากรอกสถานที่ทำงาน";
 
@@ -359,7 +359,7 @@ function CompanyCreateJob() {
                         </span>
                         <br />
                         <span className="hero-subtitle">
-                            เข้าถึง Candidate กว่า <span className="hero-number">2,700,000</span> คน
+                            เข้าถึงผู้สมัครที่ใช่ได้ง่ายขึ้น
                         </span>
                     </p>
 
@@ -404,57 +404,75 @@ function CompanyCreateJob() {
                                     ข้อมูลตำแหน่งงาน
                                 </h2>
 
-                                <div className="form-group-create">
-                                    <label>
-                                        ชื่อตำแหน่งงาน <span className="required">*</span>
-                                    </label>
 
-                                    <input
-                                        ref={fieldRefs.jobTitle}
-                                        value={jobData.jobTitle}
-                                        className={errors.jobTitle ? "input-error" : ""}
-                                        onBlur={() =>
-                                            validateField("jobTitle", jobData.jobTitle)
-                                        }
-                                        onChange={(e) => {
-                                            setJobData({
-                                                ...jobData,
-                                                jobTitle: e.target.value,
-                                            });
+                                {/* ชื่อตำแหน่งงาน และหมวดหมู่งาน */}
+                                <div className="form-row-create job-title-category-row">
 
-                                            if (errors.jobTitle && e.target.value.trim()) {
-                                                setErrors(prev => ({
-                                                    ...prev,
-                                                    jobTitle: "",
-                                                }));
+                                    {/* ชื่อตำแหน่งงาน */}
+                                    <div className="form-group-create">
+                                        <label>
+                                            ชื่อตำแหน่งงาน <span className="required">*</span>
+                                        </label>
+
+                                        <input
+                                            ref={fieldRefs.jobTitle}
+                                            value={jobData.jobTitle}
+                                            className={errors.jobTitle ? "input-error" : ""}
+                                            onBlur={() =>
+                                                validateField("jobTitle", jobData.jobTitle)
                                             }
-                                        }}
-                                        placeholder="กรอกรายละเอียดงาน"
-                                    />
-                                    {errors.jobTitle && (
-                                        <small className="error-text-create">
-                                            {errors.jobTitle}
-                                        </small>
-                                    )}
-                                </div>
+                                            onChange={(e) => {
+                                                const value = e.target.value;
 
-                                <div className="form-row-create">
+                                                setJobData(prev => ({
+                                                    ...prev,
+                                                    jobTitle: value,
+                                                }));
 
+                                                if (value.trim()) {
+                                                    setErrors(prev => ({
+                                                        ...prev,
+                                                        jobTitle: "",
+                                                    }));
+                                                }
+                                            }}
+                                            placeholder="กรอกชื่อตำแหน่งงาน"
+                                        />
+
+                                        {errors.jobTitle && (
+                                            <small className="error-text-create">
+                                                {errors.jobTitle}
+                                            </small>
+                                        )}
+                                    </div>
+
+                                    {/* หมวดหมู่งาน */}
                                     <div className="form-group-create">
                                         <label>
                                             หมวดหมู่งาน <span className="required">*</span>
                                         </label>
+
                                         <div className="select-wrapper">
                                             <select
+                                                ref={fieldRefs.category}
                                                 value={jobData.category}
-                                                onChange={(e) =>
-                                                    setJobData({
-                                                        ...jobData,
-                                                        category: e.target.value
-                                                    })
+                                                className={errors.category ? "input-error" : ""}
+                                                onBlur={() =>
+                                                    validateField("category", jobData.category)
                                                 }
+                                                onChange={(e) => {
+                                                    setJobData(prev => ({
+                                                        ...prev,
+                                                        category: e.target.value,
+                                                    }));
+
+                                                    setErrors(prev => ({
+                                                        ...prev,
+                                                        category: "",
+                                                    }));
+                                                }}
                                             >
-                                                <option value="">เลือกหมวดหมู่</option>
+                                                <option value="">เลือกหมวดหมู่งาน</option>
                                                 <option value="IT">IT / Developer</option>
                                                 <option value="Design">Design</option>
                                                 <option value="Marketing">Marketing</option>
@@ -463,60 +481,16 @@ function CompanyCreateJob() {
 
                                             <FiChevronDown className="select-arrow" />
                                         </div>
-                                        {errors.category &&
+
+                                        {errors.category && (
                                             <small className="error-text-create">
                                                 {errors.category}
                                             </small>
-                                        }
+                                        )}
                                     </div>
 
-
-                                    {/* <div className="form-group">
-                                        <label>
-                                            ประเภทงาน <span className="required">*</span>
-                                        </label>
-
-                                        <div className="select-wrapper">
-                                            <select
-                                                ref={fieldRefs.jobType}
-                                                className={errors.jobType ? "input-error" : ""}
-                                                value={jobData.jobType}
-                                                onBlur={() =>
-                                                    validateField("jobType", jobData.jobType)
-                                                }
-                                                onChange={(e) => {
-                                                    setJobData({
-                                                        ...jobData,
-                                                        jobType: e.target.value
-                                                    });
-
-                                                    setErrors(prev => ({
-                                                        ...prev,
-                                                        jobType: ""
-                                                    }));
-                                                }}
-                                            >
-                                                <option value="">เลือกประเภทงาน</option>
-                                                <option>นักศึกษาฝึกงาน</option>
-                                                <option>สหกิจศึกษา</option>
-                                                <option>พาร์ทไทม์</option>
-                                                <option>งานประจำ</option>
-                                                <option>ฟรีแลนซ์</option>
-                                            </select>
-
-                                            <FiChevronDown className="select-arrow" />
-                                        </div>
-
-                                        {errors.jobType && (
-                                            <small className="error-text">
-                                                {errors.jobType}
-                                            </small>
-                                        )}
-                                    </div> */}
-
-
-
                                 </div>
+
                                 {/* รูปแบบงาน */}
                                 <div className="form-group-create">
                                     <label>
@@ -775,49 +749,53 @@ function CompanyCreateJob() {
                                     {
                                         jobData.salaryType === "paid" && (
                                             <div className="salary-input-row">
-                                                <input
-                                                    ref={fieldRefs.salary}
-                                                    type="number"
-                                                    min={1}
-                                                    step={1}
-                                                    className={errors.salary ? "input-error" : ""}
-                                                    placeholder="เช่น 350"
-                                                    value={jobData.salary}
-                                                    onBlur={() =>
-                                                        validateField("salary", jobData.salary)
-                                                    }
-                                                    onChange={(e) => {
-                                                        setJobData({
-                                                            ...jobData,
-                                                            salary: e.target.value
-                                                        });
+                                                <div className="salary-input-wrapper">
+                                                    <input
+                                                        ref={fieldRefs.salary}
+                                                        type="number"
+                                                        min={1}
+                                                        step={1}
+                                                        className={errors.salary ? "input-error" : ""}
+                                                        placeholder="เช่น 350"
+                                                        value={jobData.salary}
+                                                        onBlur={() => validateField("salary", jobData.salary)}
+                                                        onChange={(e) => {
+                                                            setJobData({
+                                                                ...jobData,
+                                                                salary: e.target.value
+                                                            });
 
-                                                        setErrors(prev => ({
-                                                            ...prev,
-                                                            salary: ""
-                                                        }));
-                                                    }}
-                                                />
+                                                            setErrors(prev => ({
+                                                                ...prev,
+                                                                salary: ""
+                                                            }));
+                                                        }}
+                                                    />
 
-                                                {errors.salary && (
-                                                    <small className="error-text-create">
-                                                        {errors.salary}
-                                                    </small>
-                                                )}
+                                                    {errors.salary && (
+                                                        <small className="error-text-create">
+                                                            {errors.salary}
+                                                        </small>
+                                                    )}
+                                                </div>
 
-                                                <select
-                                                    value={jobData.salaryUnit}
-                                                    onChange={(e) =>
-                                                        setJobData({
-                                                            ...jobData,
-                                                            salaryUnit: e.target.value
-                                                        })
-                                                    }
-                                                >
-                                                    <option>บาท/วัน</option>
-                                                    <option>บาท/เดือน</option>
-                                                    <option>บาท/ชั่วโมง</option>
-                                                </select>
+                                                <div className="salary-select-wrapper">
+                                                    <select
+                                                        value={jobData.salaryUnit}
+                                                        onChange={(e) =>
+                                                            setJobData({
+                                                                ...jobData,
+                                                                salaryUnit: e.target.value
+                                                            })
+                                                        }
+                                                    >
+                                                        <option>บาท/วัน</option>
+                                                        <option>บาท/เดือน</option>
+                                                        <option>บาท/ชั่วโมง</option>
+                                                    </select>
+
+                                                    <FiChevronDown className="salary-select-arrow" />
+                                                </div>
                                             </div>
                                         )
                                     }
@@ -896,11 +874,11 @@ function CompanyCreateJob() {
                                         }}
                                         placeholder="อธิบายคุณสมบัติ"
                                     />
-                                    {errors.qualification &&
-                                        <small className="-create">
+                                    {errors.qualification && (
+                                        <small className="error-text-create">
                                             {errors.qualification}
                                         </small>
-                                    }
+                                    )}
                                 </div>
 
 

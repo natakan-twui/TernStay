@@ -64,6 +64,9 @@
     
 } */
 
+.editjob-form h2 {
+    color: #182e5b;
+}
 
 .editjob-form-card h2 {
     font-size: 24px;
@@ -108,8 +111,22 @@
 .form-group-edit label {
     display: block;
     margin-bottom: 8px;
-    font-weight: normal !important;
+    font-weight: 500 !important;
     color: #182e5b;
+    font-size: 14px;
+
+}
+
+.editjob-form-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500 !important;
+    color: #182e5b;
+    font-size: 14px;
+}
+
+.editjob-form-card label span {
+    color: red;
 
 }
 
@@ -1128,4 +1145,164 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+/* กรอบปุ่มตัวเลือกที่มีข้อผิดพลาด */
+.edit-options-error {
+    outline: 1px solid #ef4444;
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* ข้อความ Error ของหน้า Edit */
+.edit-error-text {
+    display: block;
+    margin-top: 6px;
+    color: #ef4444;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* ช่องกรอกที่มีข้อผิดพลาด */
+.company-editejob-page .edit-input-error {
+    border: 1px solid #ef4444 !important;
+    box-shadow: 0 0 0 2px rgba(224, 75, 75, 0.08);
+}
+
+.company-editejob-page .edit-input-error:focus {
+    border-color: #e04b4b#ef4444
+}
+
+/* ไม่แสดงกรอบรอบกลุ่มปุ่มเมื่อเกิด Error */
+.work-type-options.edit-options-error,
+.salary-options.edit-options-error {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ขยับส่วนรูปแบบการทำงานขึ้นเล็กน้อย */
+.editjob-form-card .form-row-edit+.form-group-edit {
+    margin-top: -15px;
+}
+/* เปลี่ยนสี Border เมื่อเอาเมาส์ไปชี้ */
+.company-editejob-page input:hover,
+.company-editejob-page select:hover,
+.company-editejob-page textarea:hover {
+    border-color: #fc6027;
+    transition: border-color 0.2s ease;
+}
+
+/* เปลี่ยนสี Border เมื่อคลิกหรือเลือกช่องกรอก */
+.company-editejob-page input:focus,
+.company-editejob-page select:focus,
+.company-editejob-page textarea:focus {
+    outline: none;
+    border-color: #fc6027e0;
+   
+}
+
+/* ช่องที่มี Error ยังคงใช้สีแดง */
+.company-editejob-page .edit-input-error:hover,
+.company-editejob-page .edit-input-error:focus {
+    border-color: #ef4444 !important;
+}
+.editjob-map-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #dce3e8;
+    margin-top: 0px;
+    
+}
+
+.editjob-map-wrapper .leaflet-container {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.editjob-map-empty {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.field-hint {
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* กล่องตัวเลือกหมวดหมู่งาน */
+.edit-category-select {
+    color: #182e5b;
+}
+
+/* ข้อความตัวเลือกเริ่มต้น */
+.edit-category-select:invalid {
+    color: #999;
+}
+
+/* สีข้อความในรายการตัวเลือก */
+.edit-category-select option {
+    color: #182e5b;
+}
+
+/* ข้อความตัวเลือกเริ่มต้นในรายการ */
+.edit-category-select option[value=""] {
+    color: #999;
+}
+.edit-category-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.edit-category-select-wrapper select {
+    width: 100%;
+    padding-right: 45px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.edit-category-arrow {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #182e5b;
+    font-size: 18px;
+    pointer-events: none;
+}
+.salary-unit-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.salary-unit-wrapper .salary-unit-select {
+    width: 100%;
+    padding-right: 42px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.salary-unit-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #182e5b;
+    font-size: 18px;
+    pointer-events: none;
 }

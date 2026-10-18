@@ -88,14 +88,14 @@ function NavbarCompany() {
                         </div>
 
                         {/* ค้นหาผู้สมัคร */}
-                        <div
+                        {/* <div
                             className={`nav-item ${
                                 isSearchActive ? "active" : ""
                             }`}
                             onClick={() => navigate("/company/search")}
                         >
                             ค้นหาผู้สมัคร
-                        </div>
+                        </div> */}
 
                         {/* โปรไฟล์บริษัท */}
                         <div
