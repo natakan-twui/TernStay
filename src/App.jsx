@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -37,9 +37,10 @@ import ProfilePreview from "./pages/ProfilePreview";
 import ProfilePrivacy from "./pages/ProfilePrivacy";
 import ProfileSettings from "./pages/ProfileSettings";
 import MyJobs from "./pages/MyJobs";
+
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
 
             <ScrollToTop />
 
@@ -183,8 +184,6 @@ function App() {
                     element={<CompanySearch />}
                 />
 
-                
-
                 {/* Company Dashboard */}
                 <Route
                     path="/company/dashboard"
@@ -252,7 +251,7 @@ function App() {
                 />
             </Routes>
 
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 

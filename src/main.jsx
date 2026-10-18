@@ -1,10 +1,13 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-// import "./Index.css";
-import App from "./App.jsx";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <App />
-    </StrictMode>
-)
+function App() {
+  return (
+    <BrowserRouter basename="/TernStay"> {/* <--- เติมตรงนี้ครับ */}
+      <Routes>
+        {/* โค้ดหน้าเว็บและ Route ต่างๆ ของคุณ */}
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
